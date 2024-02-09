@@ -1,5 +1,6 @@
 {
   "name": "ProjectWork",
+  "projectId": "564113ca-7275-4a8f-bbb6-6989fc3ae07e",
   "description": "Blank Process",
   "main": "Main.xaml",
   "dependencies": {
@@ -22,6 +23,7 @@
     "isAttended": false,
     "requiresUserInteraction": true,
     "supportsPersistence": false,
+    "workflowSerialization": "DataContract",
     "excludedLoggedData": [
       "Private:*",
       "*password*"
@@ -43,7 +45,7 @@
       "ignoredFiles": []
     },
     "fileInfoCollection": [],
-    "modernBehavior": true
+    "saveToCloud": false
   },
   "expressionLanguage": "CSharp",
   "entryPoints": [
