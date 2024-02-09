@@ -5,6 +5,7 @@
   "main": "Main.xaml",
   "dependencies": {
     "UiPath.Excel.Activities": "[2.23.0-preview]",
+    "UiPath.Jira.IntegrationService.Activities": "[6.1.0]",
     "UiPath.Mail.Activities": "[1.21.1]",
     "UiPath.PDF.Activities": "[3.17.0-preview]",
     "UiPath.System.Activities": "[23.12.0-preview]",

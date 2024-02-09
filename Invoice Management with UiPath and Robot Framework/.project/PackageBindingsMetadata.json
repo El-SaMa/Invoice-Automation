@@ -617,6 +617,692 @@
         "DefaultValueSource": "Property"
       }
     ],
+    "UiPath.Jira.IntegrationService.Activities.AddAttachment": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.AddComment": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.CreateIssue": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.DeleteIssue": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.DeleteRecord": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.FindUsersbyEmail": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.GetComments": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.GetIssue": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.GetRecord": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.InsertRecord": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.InvokeMethod": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.ListAllRecords": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.Scope": [
+      {
+        "Type": "Connection",
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "DefaultValueSource": "Default"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.SearchIssuebyJQL": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.TransitionIssue": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.UpdateIssueAssignee": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.UpsertIssue": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.UpsertRecord": [
+      {
+        "Type": "Connection",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "UseConnectionService": {
+            "Value": "UseConnectionService",
+            "ValueSource": "Property"
+          },
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "ActivityName": {
+            "Value": "DisplayName",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
+    "UiPath.Jira.IntegrationService.Activities.WhenEventHappens": [
+      {
+        "Type": "EventTrigger",
+        "PublishNullValues": false,
+        "Key": {
+          "Value": "BindingsKey",
+          "ValueSource": "Property"
+        },
+        "Values": {
+          "ConnectionId": {
+            "Value": "ConnectionId",
+            "ValueSource": "Property"
+          }
+        },
+        "Arguments": {
+          "Connector": {
+            "Value": "Connector",
+            "ValueSource": "Property"
+          },
+          "Operation": {
+            "Value": "Operation",
+            "ValueSource": "Property"
+          },
+          "ObjectName": {
+            "Value": "ObjectName",
+            "ValueSource": "Property"
+          },
+          "FilterExpression": {
+            "Value": "FilterExpression",
+            "ValueSource": "Property"
+          },
+          "BindingsVersion": {
+            "Value": "BindingsVersion",
+            "ValueSource": "Property"
+          }
+        },
+        "SubBindings": [],
+        "DefaultValueSource": "Property"
+      }
+    ],
     "UiPath.Mail.Activities.Business.ExchangeApplicationCard": [
       {
         "Type": "Connection",

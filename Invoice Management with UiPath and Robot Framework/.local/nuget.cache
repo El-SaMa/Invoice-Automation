@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "YpFfYw5wZ6xXr9UGsfnzSH804MrqeHFDMN1c4dK7k9VP7nQT+rjpaZJ64bIBz0EpgJtg/jbJxIASzZKoxG0/SQ==",
+  "dgSpecHash": "W7tflp+iZsyvLc1vKGyeNt4cKEGaBwfmTg4RgdXT9QvPHYJdOtlUsPZT1mlS9AiHm59D2DAtgCV4u6J/ObZg1Q==",
   "success": true,
   "projectFilePath": "D:\\Hamk\\Automating Business Process\\Software robotics and automation\\Project\\Invoice-Automation\\Invoice Management with UiPath and Robot Framework\\.local\\",
   "expectedPackageFiles": [
@@ -268,12 +268,15 @@
     "C:\\Users\\shrey\\.nuget\\packages\\system.xml.xdocument\\4.3.0\\system.xml.xdocument.4.3.0.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath\\23.10.71.64399\\uipath.23.10.71.64399.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.activities.runtimegovernance\\1.1.6\\uipath.activities.runtimegovernance.1.1.6.nupkg.sha512",
+    "C:\\Users\\shrey\\.nuget\\packages\\uipath.baf.infrastructure\\2.0.3\\uipath.baf.infrastructure.2.0.3.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.codedworkflows\\23.10.2\\uipath.codedworkflows.23.10.2.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.connectionclient\\1.4.6\\uipath.connectionclient.1.4.6.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.documentprocessing.contracts\\1.24.1-preview\\uipath.documentprocessing.contracts.1.24.1-preview.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.documentunderstanding.digitizer\\4.0.0\\uipath.documentunderstanding.digitizer.4.0.0.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.excel.activities\\2.23.0-preview\\uipath.excel.activities.2.23.0-preview.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.imageprocessing\\23.4.0\\uipath.imageprocessing.23.4.0.nupkg.sha512",
+    "C:\\Users\\shrey\\.nuget\\packages\\uipath.integrationservice.infrastructure\\2.0.5\\uipath.integrationservice.infrastructure.2.0.5.nupkg.sha512",
+    "C:\\Users\\shrey\\.nuget\\packages\\uipath.jira.integrationservice.activities\\6.1.0\\uipath.jira.integrationservice.activities.6.1.0.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.mail.activities\\1.21.1\\uipath.mail.activities.1.21.1.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.ocr.activities\\3.17.1\\uipath.ocr.activities.3.17.1.nupkg.sha512",
     "C:\\Users\\shrey\\.nuget\\packages\\uipath.ocr.contracts\\2.16.0\\uipath.ocr.contracts.2.16.0.nupkg.sha512",
