@@ -22551,15 +22551,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\shrey\\.nuget\\packages\\": {}
+    "C:\\Users\\ELSAMA\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "Invoice Management with UiPath and Robot Framework",
       "projectName": "Invoice Management with UiPath and Robot Framework",
-      "projectPath": "D:\\Hamk\\Automating Business Process\\Software robotics and automation\\Project\\Invoice-Automation\\Invoice Management with UiPath and Robot Framework\\.local",
-      "packagesPath": "C:\\Users\\shrey\\.nuget\\packages\\",
-      "outputPath": "D:\\Hamk\\Automating Business Process\\Software robotics and automation\\Project\\Invoice-Automation\\Invoice Management with UiPath and Robot Framework\\.local"
+      "projectPath": "C:\\Users\\ELSAMA\\OneDrive\\Desktop\\Invoice-Automation\\Invoice Management with UiPath and Robot Framework\\.local",
+      "packagesPath": "C:\\Users\\ELSAMA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ELSAMA\\OneDrive\\Desktop\\Invoice-Automation\\Invoice Management with UiPath and Robot Framework\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
@@ -22600,7 +22600,7 @@
             "version": "[23.10.8, 23.10.8]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\shrey\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\ELSAMA\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {
