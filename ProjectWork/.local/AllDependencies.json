@@ -21276,15 +21276,15 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\immor\\.nuget\\packages\\": {}
+    "C:\\Users\\ELSAMA\\.nuget\\packages\\": {}
   },
   "project": {
     "restore": {
       "projectUniqueName": "ProjectWork",
       "projectName": "ProjectWork",
-      "projectPath": "C:\\Users\\immor\\Documents\\UiPath\\Invoice-Automation\\ProjectWork\\.local",
-      "packagesPath": "C:\\Users\\immor\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\immor\\Documents\\UiPath\\Invoice-Automation\\ProjectWork\\.local"
+      "projectPath": "C:\\Users\\ELSAMA\\OneDrive\\Desktop\\Invoice-Automation\\ProjectWork\\.local",
+      "packagesPath": "C:\\Users\\ELSAMA\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\ELSAMA\\OneDrive\\Desktop\\Invoice-Automation\\ProjectWork\\.local"
     },
     "frameworks": {
       "net6.0-windows7.0": {
@@ -21320,7 +21320,7 @@
             "version": "[22.10.3, 22.10.3]"
           }
         },
-        "runtimeIdentifierGraphPath": "C:\\Users\\immor\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
+        "runtimeIdentifierGraphPath": "C:\\Users\\ELSAMA\\AppData\\Local\\Programs\\UiPath\\Studio\\runtime.json"
       }
     },
     "runtimes": {

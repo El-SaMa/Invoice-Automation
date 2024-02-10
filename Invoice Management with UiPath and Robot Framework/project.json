@@ -1,22 +1,21 @@
 {
-  "name": "Invoice Management with UiPath and Robot Framework",
-  "projectId": "f64f268f-d7a1-40bf-b6ca-a9b43400dc62",
-  "description": "Efficient PDF Invoice Processing with UiPath and Robot Framework",
+  "name": "Invoice Automation RPA",
+  "projectId": "564113ca-7275-4a8f-bbb6-6989fc3ae07e",
+  "description": "Invoice Management with UiPath and Robot Framework",
   "main": "Main.xaml",
   "dependencies": {
-    "UiPath.Excel.Activities": "[2.23.0-preview]",
-    "UiPath.Jira.IntegrationService.Activities": "[6.1.0]",
-    "UiPath.Mail.Activities": "[1.21.1]",
-    "UiPath.PDF.Activities": "[3.17.0-preview]",
-    "UiPath.System.Activities": "[23.12.0-preview]",
-    "UiPath.Testing.Activities": "[23.12.0-preview]",
-    "UiPath.UIAutomation.Activities": "[23.10.8]"
+    "UiPath.Excel.Activities": "[2.16.0]",
+    "UiPath.Mail.Activities": "[1.18.1]",
+    "UiPath.PDF.Activities": "[3.11.0]",
+    "UiPath.System.Activities": "[22.10.3]",
+    "UiPath.Testing.Activities": "[22.10.0]",
+    "UiPath.UIAutomation.Activities": "[22.10.3]"
   },
   "webServices": [],
   "entitiesStores": [],
   "schemaVersion": "4.0",
-  "studioVersion": "23.12.0.0",
-  "projectVersion": "1.0.4",
+  "studioVersion": "22.10.3.0",
+  "projectVersion": "1.0.0",
   "runtimeOptions": {
     "autoDispose": false,
     "netFrameworkLazyLoading": false,
@@ -48,11 +47,11 @@
     "fileInfoCollection": [],
     "saveToCloud": false
   },
-  "expressionLanguage": "VisualBasic",
+  "expressionLanguage": "CSharp",
   "entryPoints": [
     {
       "filePath": "Main.xaml",
-      "uniqueId": "cf37415e-42b9-47c0-8e10-ac5448e3c3fb",
+      "uniqueId": "b1372bdc-5ace-4e21-b515-fc75b7b81ee4",
       "input": [],
       "output": []
     }
