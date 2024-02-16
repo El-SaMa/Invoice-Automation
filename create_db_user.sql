@@ -1,16 +1,15 @@
--- Luodaan käyttäjä
+-- create db user
 CREATE USER 'robotuser'@'localhost' IDENTIFIED BY 'password';
 
--- Luodaan rooli
+-- create role
 create role robotrole;
 
--- Annetaan roolin oikeus käyttäjälle
+-- grant role to user
 grant robotrole to 'robotuser'@'localhost';
 
--- Asetetaan käyttäjälle oletuskena roolit käyttöön, kun kirjaudutaan
+-- set default role
 set default role all to 'robotuser'@'localhost';
 
--- Annetaan oikeudet roolille haluttuun tietokantaan
 use rpakurssi;
 
 grant select, insert, update on invoiceheader to robotrole;

@@ -8,9 +8,11 @@ Library    validate.py
 
 *** Variables ***
 # Global variables
-${PATH}    C:/Users/utosu/PycharmProjects/Robocop/Automation/
+${PATH}     C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\InvoiceHeaderData.csv
 @{ListToDB}
 ${InvoiceNumber}    empty
+${headers}
+${rows}
 
 # database related variables
 ${dbname}    rpakurssi
@@ -133,8 +135,8 @@ Add Invoice Row To DB
 *** Test Cases ***
 Read CSV file to list
     #Make Connection    ${dbname}
-    ${outputHeader}=    Get File    ${PATH}InvoiceHeaderData.csv
-    ${outputRows}=    Get File    ${PATH}InvoiceRowData.csv
+    ${outputHeader}=    Get File    InvoiceHeaderData.csv
+    ${outputRows}=    Get File      InvoiceRowData.csv
     Log    ${outputHeader}
     Log    ${outputRows}
 
@@ -156,9 +158,7 @@ Read CSV file to list
     Remove From List    ${rows}    ${length}
     Remove From List    ${rows}    ${index}
     
-    # Set as global, that we can use same variables in other test cases
-    Set Global Variable    ${headers}
-    Set Global Variable    ${rows}
+
 
 *** Test Cases ***
 Loop all invoicerows
