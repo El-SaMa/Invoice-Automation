@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='ONLY_FULL_GROUP_BY,STRICT_TRANS_TABLES,NO_ZERO_IN_DATE,NO_ZERO_DATE,ERROR_FOR_DIVISION_BY_ZERO,NO_ENGINE_SUBSTITUTION';
 
 -- -----------------------------------------------------
--- Schema rpakurssi
+-- Schema RPA-DB
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema rpakurssi
+-- Schema RPA-DB
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `rpakurssi` DEFAULT CHARACTER SET utf8 ;
-USE `rpakurssi` ;
+CREATE SCHEMA IF NOT EXISTS `RPA-DB` DEFAULT CHARACTER SET utf8 ;
+USE `RPA-DB` ;
 
 -- -----------------------------------------------------
--- Table `rpakurssi`.`InvoiceStatus`
+-- Table `RPA-DB`.`InvoiceStatus`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rpakurssi`.`InvoiceStatus` (
+CREATE TABLE IF NOT EXISTS `RPA-DB`.`InvoiceStatus` (
   `id` INT NOT NULL,
   `name` VARCHAR(45) NOT NULL,
   PRIMARY KEY (`id`))
@@ -28,9 +28,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `rpakurssi`.`InvoiceHeader`
+-- Table `RPA-DB`.`InvoiceHeader`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rpakurssi`.`InvoiceHeader` (
+CREATE TABLE IF NOT EXISTS `RPA-DB`.`InvoiceHeader` (
   `invoicenumber` INT NOT NULL,
   `companyname` VARCHAR(100) NULL,
   `companycode` VARCHAR(45) NOT NULL,
@@ -47,16 +47,16 @@ CREATE TABLE IF NOT EXISTS `rpakurssi`.`InvoiceHeader` (
   INDEX `fk_InvoiceHeader_InvoiceStatus1_idx` (`InvoiceStatus_id` ASC) VISIBLE,
   CONSTRAINT `fk_InvoiceHeader_InvoiceStatus1`
     FOREIGN KEY (`InvoiceStatus_id`)
-    REFERENCES `rpakurssi`.`InvoiceStatus` (`id`)
+    REFERENCES `RPA-DB`.`InvoiceStatus` (`id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `rpakurssi`.`InvoiceRow`
+-- Table `RPA-DB`.`InvoiceRow`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `rpakurssi`.`InvoiceRow` (
+CREATE TABLE IF NOT EXISTS `RPA-DB`.`InvoiceRow` (
   `invoicenumber` INT NOT NULL,
   `rownumber` INT NOT NULL,
   `description` VARCHAR(100) NOT NULL,
@@ -69,7 +69,7 @@ CREATE TABLE IF NOT EXISTS `rpakurssi`.`InvoiceRow` (
   PRIMARY KEY (`invoicenumber`, `rownumber`),
   CONSTRAINT `fk_InvoiceRow_InvoiceHeader`
     FOREIGN KEY (`invoicenumber`)
-    REFERENCES `rpakurssi`.`InvoiceHeader` (`invoicenumber`)
+    REFERENCES `RPA-DB`.`InvoiceHeader` (`invoicenumber`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;

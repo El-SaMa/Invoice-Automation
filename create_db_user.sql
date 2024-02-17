@@ -12,6 +12,6 @@ set default role all to 'robotuser'@'localhost';
 
 use rpakurssi;
 
-grant select, insert, update on invoiceheader to robotrole;
+grant select, insert, update on invoiceheader to robotrole; 
 grant select, insert, update on invoicerow to robotrole;
 grant select on invoicestatus to robotrole;
