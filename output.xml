@@ -1,43 +1,141 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 4.1.1 (Python 3.11.5 on win32)" generated="20240224 14:36:17.997" rpa="false" schemaversion="2">
+<robot generator="Robot 4.1.1 (Python 3.11.5 on win32)" generated="20240224 17:45:53.036" rpa="false" schemaversion="2">
 <suite id="s1" name="Rpa Project" source="c:\Users\immor\Documents\UiPath\Invoice-Automation\rpa_project.robot">
-<test id="s1-t1" name="Test DB Connection">
-<kw name="Connect To Database" library="DatabaseLibrary">
-<arg>${db_params}</arg>
-<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
-connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
-<msg timestamp="20240224 14:36:18.080" level="FAIL">NoSectionError: No section: 'default'</msg>
-<status status="FAIL" starttime="20240224 14:36:18.077" endtime="20240224 14:36:18.083"/>
+<test id="s1-t1" name="Read CSV file to list">
+<kw name="Get File" library="OperatingSystem">
+<var>${outputHeader}</var>
+<arg>InvoiceHeaderData.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20240224 17:45:53.094" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\immor\Documents\UiPath\Invoice-Automation\InvoiceHeaderData.csv"&gt;C:\Users\immor\Documents\UiPath\Invoice-Automation\InvoiceHeaderData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240224 17:45:53.096" level="INFO">${outputHeader} = ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount
+143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;FI12...</msg>
+<status status="PASS" starttime="20240224 17:45:53.093" endtime="20240224 17:45:53.096"/>
 </kw>
-<kw name="Execute Sql String" library="DatabaseLibrary">
-<var>${result}</var>
-<arg>SELECT * FROM invoiceheader</arg>
-<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
-True to run command without an explicit transaction commit or rollback.</doc>
-<status status="NOT RUN" starttime="20240224 14:36:18.084" endtime="20240224 14:36:18.084"/>
+<kw name="Get File" library="OperatingSystem">
+<var>${outputRows}</var>
+<arg>InvoiceRowData.csv</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20240224 17:45:53.097" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\immor\Documents\UiPath\Invoice-Automation\InvoiceRowData.csv"&gt;C:\Users\immor\Documents\UiPath\Invoice-Automation\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240224 17:45:53.098" level="INFO">${outputRows} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;143143;1
+Replacement Products;10;kpl;105;24;252;1302;143143;2
+Keyboard Logitech...</msg>
+<status status="PASS" starttime="20240224 17:45:53.097" endtime="20240224 17:45:53.098"/>
 </kw>
 <kw name="Log" library="BuiltIn">
-<arg>${result}</arg>
+<arg>${outputHeader}</arg>
 <doc>Logs the given message with the given level.</doc>
-<status status="NOT RUN" starttime="20240224 14:36:18.084" endtime="20240224 14:36:18.084"/>
+<msg timestamp="20240224 17:45:53.099" level="INFO">﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount
+143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;FI12 3456 7890 1234 56;1350;324;1674
+1543235;Component Oy;15432359;01.10.2022;15.10.2022;1234567-9;FI05 1234 5600 7891 01;465;111.6;576.6
+153143;Service Provider Oy;1531439;15.12.2022;01.04.2021;1234567-8;FI12 3456 7890 1234 56;2700;648;3348
+</msg>
+<status status="PASS" starttime="20240224 17:45:53.098" endtime="20240224 17:45:53.099"/>
 </kw>
-<kw name="Disconnect From Database" library="DatabaseLibrary">
-<doc>Disconnects from the database.</doc>
-<status status="NOT RUN" starttime="20240224 14:36:18.085" endtime="20240224 14:36:18.085"/>
+<kw name="Log" library="BuiltIn">
+<arg>${outputRows}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240224 17:45:53.100" level="INFO">﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;143143;1
+Replacement Products;10;kpl;105;24;252;1302;143143;2
+Keyboard Logitech;10;kpl;40;24;96;496;1543235;1
+Brother printer;1;kpl;65;24;15.6;80.6;1543235;2
+Installation Services;5;h;60;24;72;372;153143;1
+Replacement Products;10;kpl;105;24;252;1302;153143;2
+Cleaning Services;5;h;60;24;72;372;153143;3
+Cleaning Wipes;10;kpl;105;24;252;1302;153143;4
+</msg>
+<status status="PASS" starttime="20240224 17:45:53.099" endtime="20240224 17:45:53.100"/>
 </kw>
-<doc>Example test case to demonstrate database operations</doc>
-<status status="FAIL" starttime="20240224 14:36:18.076" endtime="20240224 14:36:18.086">NoSectionError: No section: 'default'</status>
+<kw name="Split String" library="String">
+<var>@{headers}</var>
+<arg>${outputHeader}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240224 17:45:53.100" level="INFO">@{headers} = [ ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount | 143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;...</msg>
+<status status="PASS" starttime="20240224 17:45:53.100" endtime="20240224 17:45:53.100"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{rows}</var>
+<arg>${outputRows}</arg>
+<arg>\n</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240224 17:45:53.101" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240224 17:45:53.101" endtime="20240224 17:45:53.101"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${headers}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20240224 17:45:53.103" level="INFO">Length is 5</msg>
+<msg timestamp="20240224 17:45:53.103" level="INFO">${length} = 5</msg>
+<status status="PASS" starttime="20240224 17:45:53.101" endtime="20240224 17:45:53.103"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${length}</var>
+<arg>${length}-1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240224 17:45:53.104" level="INFO">${length} = 4</msg>
+<status status="PASS" starttime="20240224 17:45:53.103" endtime="20240224 17:45:53.104"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20240224 17:45:53.104" level="INFO">${index} = 0</msg>
+<status status="PASS" starttime="20240224 17:45:53.104" endtime="20240224 17:45:53.104"/>
+</kw>
+<kw name="Remove From List" library="Collections">
+<arg>${headers}</arg>
+<arg>${length}</arg>
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" starttime="20240224 17:45:53.105" endtime="20240224 17:45:53.105"/>
+</kw>
+<kw name="Remove From List" library="Collections">
+<arg>${headers}</arg>
+<arg>${index}</arg>
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" starttime="20240224 17:45:53.105" endtime="20240224 17:45:53.106"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${rows}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<msg timestamp="20240224 17:45:53.106" level="INFO">Length is 10</msg>
+<msg timestamp="20240224 17:45:53.106" level="INFO">${length} = 10</msg>
+<status status="PASS" starttime="20240224 17:45:53.106" endtime="20240224 17:45:53.106"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${length}</var>
+<arg>${length}-1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240224 17:45:53.108" level="INFO">${length} = 9</msg>
+<status status="PASS" starttime="20240224 17:45:53.106" endtime="20240224 17:45:53.108"/>
+</kw>
+<kw name="Remove From List" library="Collections">
+<arg>${rows}</arg>
+<arg>${length}</arg>
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" starttime="20240224 17:45:53.108" endtime="20240224 17:45:53.108"/>
+</kw>
+<kw name="Remove From List" library="Collections">
+<arg>${rows}</arg>
+<arg>${index}</arg>
+<doc>Removes and returns the value specified with an ``index`` from ``list``.</doc>
+<status status="PASS" starttime="20240224 17:45:53.109" endtime="20240224 17:45:53.109"/>
+</kw>
+<status status="PASS" starttime="20240224 17:45:53.093" endtime="20240224 17:45:53.110"/>
 </test>
-<status status="FAIL" starttime="20240224 14:36:18.005" endtime="20240224 14:36:18.087"/>
+<status status="PASS" starttime="20240224 17:45:53.040" endtime="20240224 17:45:53.111"/>
 </suite>
 <statistics>
 <total>
-<stat pass="0" fail="1" skip="0">All Tests</stat>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="0" fail="1" skip="0" id="s1" name="Rpa Project">Rpa Project</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Rpa Project">Rpa Project</stat>
 </suite>
 </statistics>
 <errors>

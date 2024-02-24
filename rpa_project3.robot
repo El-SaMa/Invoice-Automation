@@ -10,8 +10,6 @@ Library    validate.py
 # Global variables
 @{ListToDB}
 ${InvoiceNumber}    empty
-${rows}    
-${headers}
 
 # database related variables
 ${dbname}    RPA_DB
@@ -84,7 +82,7 @@ Add Invoice Header To DB
         ${commentOfInvoice}=    Set Variable    Amount difference
     END
 
-    ${insertStmt}=    Set Variable    insert into invoiceheader (invoicenumber, companyname, companycode, referencenumber, invoicedate, duedate, bankaccountnumber, amountexclvat, vat, totalamount, comment) values ('${items}[0]', '${items}[1]', '${items}[5]', '${items}[2]', '${innvoiceDate}', '${dueDate}', '${items}[6]', '${items}[7]', '${items}[8]', '${items}[9]', '${commentOfInvoice}');
+    ${insertStmt}=    Set Variable    insert into invoiceheader (invoicenumber, companyname, companycode, referencenumber, invoicedate, duedate, bankaccountnumber, amountexclvat, vat, totalamount, comments) values ('${items}[0]', '${items}[1]', '${items}[5]', '${items}[2]', '${innvoiceDate}', '${dueDate}', '${items}[6]', '${items}[7]', '${items}[8]', '${items}[9]', '${commentOfInvoice}');
     #Log    ${insertStmt}
     Execute Sql String    ${insertStmt}
 
@@ -133,17 +131,17 @@ Add Invoice Row To DB
 
 *** Test Cases ***
 Read CSV file to list
-    # Read CSV files to variables
+    #Make Connection    ${dbname}
     ${outputHeader}=    Get File    InvoiceHeaderData.csv
     ${outputRows}=    Get File    InvoiceRowData.csv
     Log    ${outputHeader}
     Log    ${outputRows}
 
-    #   Split CSV data to lists
+    # Each row read as an element to list 
     @{headers}=    Split String    ${outputHeader}    \n
     @{rows}=    Split String    ${outputRows}    \n
     
-    #   Remove first and last element from lists
+    # Remove last row and first row from lists (last=empty and first=header)
     ${length}=    Get Length    ${headers}
     ${length}=    Evaluate    ${length}-1
     ${index}=    Convert To Integer    0
@@ -157,6 +155,9 @@ Read CSV file to list
     Remove From List    ${rows}    ${length}
     Remove From List    ${rows}    ${index}
     
+    # Set as global, that we can use same variables in other test cases
+    Set Global Variable    ${headers}
+    Set Global Variable    ${rows}
 
 *** Test Cases ***
 Test Make Connection Keyword
@@ -178,16 +179,17 @@ Loop all invoicerows
 
         Log    ${rowInvoiceNumber}
         Log    ${InvoiceNumber}
-        # Check if invoice number is same as previous
+
+        # Planning diagram shows that first we need to check if our invoice number is changing
         IF    '${rowInvoiceNumber}' == '${InvoiceNumber}'
-            Log     add row to invoice
+            Log    Lisätään rivejä laskulle
             
             # Add data to global list using own keyword
             Add Row Data to List    ${items}
 
         ELSE
-            #    check if there is rows to be written to list
-            Log    check if there is rows to be written to list
+            # If invoice number changes, we need to check if there is rows going to database
+            Log    Pitää tutkia onko tietokantalistassa jo rivejä
             ${length}=    Get Length    ${ListToDB}
             IF    ${length} == ${0}
                 Log    Ensimmäisen laskun tapaus
