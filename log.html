@@ -5,7 +5,7 @@
 <meta http-equiv="Pragma" content="no-cache">
 <meta http-equiv="Expires" content="-1">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
-<meta content="Robot Framework 6.1.1 (Python 3.12.0 on win32)" name="Generator">
+<meta content="Robot Framework 4.1.1 (Python 3.11.5 on win32)" name="Generator">
 <link rel="icon" type="image/x-icon" href="data:image/x-icon;base64,AAABAAEAEBAAAAEAIABoBAAAFgAAACgAAAAQAAAAIAAAAAEAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAKcAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAAqAAAAAAAAAAAAAAAAAAAALIAAAD/AAAA4AAAANwAAADcAAAA3AAAANwAAADcAAAA3AAAANwAAADcAAAA4AAAAP8AAACxAAAAAAAAAKYAAAD/AAAAuwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC/AAAA/wAAAKkAAAD6AAAAzAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN8AAAD/AAAA+gAAAMMAAAAAAAAAAgAAAGsAAABrAAAAawAAAGsAAABrAAAAawAAAGsAAABrAAAADAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAIsAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAANEAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAAAAAAAAMgAAADIAAAAyAAAAMgAAADIAAAAyAAAAMgAAADIAAAAFAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAADwAAAB8AAAAAAAAAGAAAABcAAAAAAAAAH8AAABKAAAAAAAAAAAAAAAAAAAA2gAAAP8AAAD6AAAAwwAAAAAAAADCAAAA/wAAACkAAADqAAAA4QAAAAAAAAD7AAAA/wAAALAAAAAGAAAAAAAAANoAAAD/AAAA+gAAAMMAAAAAAAAAIwAAAP4AAAD/AAAA/wAAAGAAAAAAAAAAAAAAAMkAAAD/AAAAigAAAAAAAADaAAAA/wAAAPoAAADDAAAAAAAAAAAAAAAIAAAAcAAAABkAAAAAAAAAAAAAAAAAAAAAAAAAEgAAAAAAAAAAAAAA2gAAAP8AAAD7AAAAywAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAN4AAAD/AAAAqwAAAP8AAACvAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAALIAAAD/AAAAsgAAAAAAAAC5AAAA/wAAAMoAAADAAAAAwAAAAMAAAADAAAAAwAAAAMAAAADAAAAAwAAAAMkAAAD/AAAAvAAAAAAAAAAAAAAAAAAAAKwAAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAA/wAAAP8AAAD/AAAArQAAAAAAAAAAwAMAAIABAAAf+AAAP/wAAD/8AAAgBAAAP/wAAD/8AAA//AAAJIwAADHEAAA//AAAP/wAAB/4AACAAQAAwAMAAA==">
 <style media="all" type="text/css">
 /* Generic and misc styles */
@@ -319,9 +319,6 @@ th.stats-col-graph:hover {
     padding: 3px;
     cursor: default;
 }
-.element-header .label {
-    margin-right: 0.5em;
-}
 .name {
     font-weight: bold;
 }
@@ -560,9 +557,6 @@ function toggleSuite(suiteId) {
 }
 function toggleTest(testId) {
     toggleElement(testId, ['keyword']);
-    var test = window.testdata.findLoaded(testId);
-    if (test.status == "FAIL" || test.status == "SKIP")
-        expandFailed(test);
 }
 function toggleKeyword(kwId) {
     toggleElement(kwId, ['keyword']);
@@ -626,7 +620,7 @@ function loadAndExpandElementIds(ids) {
     }
 }
 function expandFailed(element) {
-    if (element.status == "FAIL" || (element.type == "test" && element.status == "SKIP")) {
+    if (element.status == "FAIL") {
         window.elementsToExpand = [element];
         window.expandDecider = function (e) {
             return e.status == "FAIL";
@@ -972,7 +966,6 @@ window.model = (function () {
     }
     function Keyword(data) {
         var kw = createModelObject(data);
-        var flatTypes = ['RETURN', 'BREAK', 'CONTINUE'];
         kw.libname = data.libname;
         kw.fullName = (kw.libname ? kw.libname + '.' : '') + kw.name;
         kw.type = data.type;
@@ -1357,8 +1350,8 @@ window.testdata = function () {
     var _statistics = null;
     var LEVELS = ['TRACE', 'DEBUG', 'INFO', 'WARN', 'ERROR', 'FAIL', 'SKIP'];
     var STATUSES = ['FAIL', 'PASS', 'SKIP', 'NOT RUN'];
-    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'ITERATION', 'IF', 'ELSE IF', 'ELSE', 'RETURN',
-                         'TRY', 'EXCEPT', 'FINALLY', 'WHILE', 'CONTINUE', 'BREAK', 'ERROR'];
+    var KEYWORD_TYPES = ['KEYWORD', 'SETUP', 'TEARDOWN', 'FOR', 'VAR', 'IF', 'ELSE IF', 'ELSE'];
+    var MESSAGE_TYPE = 8;
     function addElement(elem) {
         if (!elem.id)
             elem.id = uniqueId();
@@ -1379,10 +1372,10 @@ window.testdata = function () {
                 elapsed];
     }
     function createMessage(element, strings) {
-        return model.Message(LEVELS[element[1]],
-                             util.timestamp(element[0]),
-                             strings.get(element[2]),
-                             strings.get(element[3]));
+        return model.Message(LEVELS[element[2]],
+                             util.timestamp(element[1]),
+                             strings.get(element[3]),
+                             strings.get(element[4]));
     }
     function parseStatus(stats) {
         return STATUSES[stats[0]];
@@ -1393,7 +1386,7 @@ window.testdata = function () {
         };
     }
     function createBodyItem(parent, element, strings, index) {
-        if (element.length < 5)
+        if (element[0] == MESSAGE_TYPE)
             return createMessage(element, strings);
         var messages = util.filter(parent.children(), function (child) {
             return child.type == 'message';
@@ -1806,31 +1799,31 @@ function stopPropagation(event) {
 window.output = {};
 </script>
 <script type="text/javascript">
-window.output["suite"] = [1,2,3,0,[],[1,0,69],[],[[4,0,0,[],[1,48,20],[[0,5,6,0,7,8,9,0,[1,50,1],[[50,2,10],[51,2,11]]],[0,5,6,0,7,12,13,0,[1,52,2],[[52,2,14],[54,2,15]]],[0,16,17,0,18,9,0,0,[1,54,1],[[55,2,19]]],[0,16,17,0,18,13,0,0,[1,55,1],[[56,2,20]]],[0,21,22,0,23,24,25,0,[1,56,1],[[57,2,26]]],[0,21,22,0,23,27,28,0,[1,57,1],[[58,2,29]]],[0,30,17,0,31,32,33,0,[1,58,1],[[59,2,34],[59,2,35]]],[0,36,17,0,37,38,33,0,[1,59,1],[[60,2,39]]],[0,40,17,0,41,42,43,0,[1,60,1],[[61,2,44]]],[0,45,46,0,47,48,0,0,[1,62,0],[]],[0,45,46,0,47,49,0,0,[1,63,0],[]],[0,30,17,0,31,50,33,0,[1,64,1],[[65,2,51],[65,2,52]]],[0,36,17,0,37,38,33,0,[1,65,0],[[65,2,53]]],[0,45,46,0,47,54,0,0,[1,66,0],[]],[0,45,46,0,47,55,0,0,[1,67,0],[]]]]],[],[1,1,0,0]];
+window.output["suite"] = [1,2,3,0,[],[0,0,82],[],[[4,0,5,[],[0,71,10,6],[[0,7,8,0,9,10,0,0,[0,72,6],[[8,75,5,6]]],[0,11,8,0,12,13,14,0,[3,79,0],[]],[0,15,16,0,17,14,0,0,[3,79,0],[]],[0,18,8,0,19,0,0,0,[3,80,0],[]]]]],[],[1,0,1,0]];
 </script>
 <script type="text/javascript">
 window.output["strings"] = [];
 </script>
 <script type="text/javascript">
-window.output["strings"] = window.output["strings"].concat(["*","*Rpa Project3","*c:\\Users\\ELSAMA\\OneDrive\\Desktop\\Invoice-Automation\\rpa_project3.robot","eNqzSVTIKEpNs1VKy8xJtdLX13e20g8tTi0q1nf1CXb0ddT3z0t1KcosS9V3SS3OLskv0PfMK8vPTE7VdSwtyc9NLMnMz9MvKkiMLyjKz0pNLjHWK8pPyi9RsqOueTb6iXYAuOE8FA==","*Read CSV file to list","*Get File","*OperatingSystem","*<p>Returns the contents of a specified file.\x3c/p>","*InvoiceHeaderData.csv","*${outputHeader}","eNpzTy0pycxLV0jLzElVULdJVMgoSk2zVQJxrfT1na1iQotTi4pjXH2CHX0dY/zzUl2KMstSY1xSi7NL8gtiPPPK8jOTU3UdS0vycxNLMvPzYEIeqYkpqUUuiSWJesnFZUp2VDPKRj/RTl0PAM4FQpw=","*${outputHeader} = ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount\n143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;FI12...","*InvoiceRowData.csv","*${outputRows}","eNpzTy0pycxLV0jLzElVULdJVMgoSk2zVQJxrfT1na1iQotTi4pjXH2CHX0dY/zzUl2KMstSY1xSi7NL8gtiPPPK8jOTU3UdS0vycxNLMvPzYEJB+eUuiSWJesnFZUp21DHHRj/RTl0PAERtQHo=","*${outputRows} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber\nInstallation Services;5;h;60;24;72;372;143143;1\nReplacement Products;10;kpl;105;24;252;1302;143143;2\nKeyboard Logitech...","*Log","*BuiltIn","*<p>Logs the given message with the given level.\x3c/p>","eNqNj01OwzAQhfc5hS+ANePfRLMKLZW6KQgq9iE1UkVjV1ES0bOx4EhcATtOkVggIdnyzLyZ+fy+Pj63fgrH1u3G7sX1tArdufGXXdM5enSvrnf+R1s6183gaD3md+lfhYOj28a/1W0bRj8sE3WXkrv39vRc7yneXKB9GJpTjgtUMh56cv0Ul7OHPkzHg+vZ/YWyJAg1R8EFCEFgOagUIqGQSht7U9Jmi4KlhNmyApYEpg2h1EBSKEJjVYE6rpJ6/nHwzg8zIRcrAuQIGZFo13BBVBEB+roYIHGQAZIymhCRG9LWcBMhf5uZpeqXGfy/GWEByKiSpFRl8Q2pVHkD","eNqdT0tOwzAQ3ecUOUEV/wJoVnw2FQiFUmDtuqPGIrUtZ1LUs7HgSFyBSfh02QppZjzSvI/f5/vHDfYu+0Q+BngYbCBPe3gKnqbRZO8Qni+XDWaHgcYVlpFsB/Owi3y8H7YrzLCIb99bMQ89nzs7KpaPmHcM6sFAC3UFUsOZBMUttOICUSwwddbhltXLJsf14KgHUcFr6vgxI0UaxqvqjySLW9yvos3r8i5uPKFrfxl68rioQXMLo5VUhk2ucqQWc5myD8TfFRO4ntSFmdVwXs0OeHlyCPOfEOYnxHWHNviwOW6gDtgXn/CYtC6+ABozjug=","*Split String","*String","*<p>Splits the <code>string\x3c/code> using <code>separator\x3c/code> as a delimiter string.\x3c/p>","*${outputHeader}, \\n","*@{headers}","*@{headers} = [ ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount | 143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;...","*${outputRows}, \\n","*@{rows}","*@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...","*Get Length","*<p>Returns and logs the length of the given item as an integer.\x3c/p>","*${headers}","*${length}","*Length is 5","*${length} = 5","*Evaluate","*<p>Evaluates the given expression in Python and returns the result.\x3c/p>","*${length}-1","*${length} = 4","*Convert To Integer","*<p>Converts the given item to an integer number.\x3c/p>","*0","*${index}","*${index} = 0","*Remove From List","*Collections","*<p>Removes and returns the value specified with an <code>index\x3c/code> from <code>list\x3c/code>.\x3c/p>","*${headers}, ${length}","*${headers}, ${index}","*${rows}","*Length is 10","*${length} = 10","*${length} = 9","*${rows}, ${length}","*${rows}, ${index}","eNq1U01PAjEQvfMr5oYe2IjEy942gtFkRaJ4MJmEdNsBK91OMy348estEg9+xKjoqc1r3pv3ZqYjERawHubWEXR1ideRJOKovqrOK7zwNBS7JhxSXCYOeObXbDX1qlXiViXLHiWoWRC+I50GhXDDqQvswVlPcFTCWRtYkvWLjDSi5BG6Q5VUoyLVW6ALc5WrmxLO2awcjTmd8Mqb0cZbCWOG9gUHr1oyH+mdqShNjdJL2Gs5JhDS5BNo5Rw4FdN+2YEs46kzuZmeXown1fR0A71PW6yjZkNID4l8zNkibvJolrANNpfs4J5l2XMx9PpFv18cYBSNb19nhprVYqaMCokkFzr+eVv/0t5/RnUR1+QNC5lPglYhbKaFNedh4ER4kYkRJ4/pNm/O9hj0DzG83oonG3bQGdZ13IGeN+r37C+Yl6za/AM+Fow2US/kzVULijsL4L31g8M/kkH3ZTO+KbXFs+BuU3mr+gzs/LG9"]);
+window.output["strings"] = window.output["strings"].concat(["*","*Rpa Project","*c:\\Users\\immor\\Documents\\UiPath\\Invoice-Automation\\rpa_project.robot","eNqtzDEOgzAMBdCrVOzl7xEgIbp068KMTOQIV00cOabn5xK8A7yBHodxGrskPw4AloC1sTVIzmp4aTwzF29Y5UN+4F3+KpGf8+mayUULrNJWTb8cvTfd1bvpzm0ATReCOzye","*Test DB Connection","*<p>Example test case to demonstrate database operations\x3c/p>","*NoSectionError: No section: 'default'","*Connect To Database","*DatabaseLibrary","*<p>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to connect to the database using `dbName`, `dbUsername`, and `dbPassword`.\x3c/p>","*${db_params}","*Execute Sql String","*<p>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to True to run command without an explicit transaction commit or rollback.\x3c/p>","*SELECT * FROM invoiceheader","*${result}","*Log","*BuiltIn","*<p>Logs the given message with the given level.\x3c/p>","*Disconnect From Database","*<p>Disconnects from the database.\x3c/p>"]);
 </script>
 <script type="text/javascript">
-window.output["stats"] = [[{"elapsed":"00:00:00","fail":0,"label":"All Tests","pass":1,"skip":0}],[],[{"elapsed":"00:00:00","fail":0,"id":"s1","label":"Rpa Project3","name":"Rpa Project3","pass":1,"skip":0}]];
+window.output["stats"] = [[{"elapsed":"00:00:00","fail":1,"label":"All Tests","pass":0,"skip":0}],[],[{"elapsed":"00:00:00","fail":1,"id":"s1","label":"Rpa Project","name":"Rpa Project","pass":0,"skip":0}]];
 </script>
 <script type="text/javascript">
-window.output["errors"] = [[37,4,56]];
+window.output["errors"] = [];
 </script>
 <script type="text/javascript">
-window.output["baseMillis"] = 1708080129652;
+window.output["baseMillis"] = 1708778178005;
 </script>
 <script type="text/javascript">
-window.output["generated"] = 89;
+window.output["generated"] = 96;
 </script>
 <script type="text/javascript">
 window.output["expand_keywords"] = null;
 </script>
 <script type="text/javascript">
-window.settings = {"defaultLevel":"INFO","minLevel":"INFO","reportURL":"report.html","rpa":false,"splitLogBase":"log","title":""};
+window.settings = {"defaultLevel":"INFO","minLevel":"FAIL","reportURL":"report.html","rpa":false,"splitLogBase":"log","title":""};
 </script>
 <title></title>
 </head>
@@ -1931,8 +1924,8 @@ function makeElementVisible(id) {
         util.map(ids, expandElementWithId);
         if (ids.length) {
             expandFailed(window.testdata.findLoaded(util.last(ids)));
+            window.location.hash = '';
             window.location.hash = id;
-            document.getElementById(id).scrollIntoView();
             highlightLinkTarget();
         }
     });
@@ -2130,7 +2123,7 @@ function addExecutionLog(main) {
     <div class="element-header closed" onclick="toggleKeyword('${id}')">
       <div class="element-header-left" title="${type}  {{if name}}{{html fullName}}  {{/if}}[${status}]">
         <span class="elapsed" title="Elapsed time">${times.elapsedTime}</span>
-        <span class="label ${status.toLowerCase()}">${type}</span>
+        <span class="label keyword ${status.toLowerCase()}">${type}</span>
         <span>{{html assign}}</span>
         <span class="name"><span class="parent-name">{{html libname}}{{if libname}} . {{/if}}</span>{{html name}}</span>
         <span class="arg">{{html arguments}}</span>
@@ -2138,7 +2131,7 @@ function addExecutionLog(main) {
       <div class="element-header-right" onclick="stopPropagation(event)">
         <a class="expand" title="Expand all" href="javascript:expandAll('${id}')"></a>
         <a class="collapse" title="Collapse all" href="javascript:collapseAll('${id}')"></a>
-        <a class="link" title="Link to this item" href="#${id}" onclick="makeElementVisible('${id}')"></a>
+        <a class="link" title="Link to this keyword" href="#${id}" onclick="makeElementVisible('${id}')"></a>
       </div>
       <div class="element-header-toggle" title="Toggle visibility"></div>
     </div>

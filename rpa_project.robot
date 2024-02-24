@@ -1,32 +1,30 @@
 *** Settings ***
+Library    DatabaseLibrary
 Library    String
 Library    Collections
 Library    OperatingSystem
-Library    DatabaseLibrary
 Library    DateTime
 Library    validate.py
 
 *** Variables ***
 #   Global variables
-${PATH}     C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\InvoiceHeaderData.csv
+${PATH}     Invoice-Automation\InvoiceHeaderData.csv
 @{ListToDB}
 ${InvoiceNumber}    empty
 ${headers}
 ${rows}
+${CONFIG_FILE}    database.ini
+${db_params}    Create Dictionary    server=ZOWIE\\SQLEXPRESS    database=RPA-DB    user=robocop    password=password    loginTimeout=30    encrypt=true    trustServerCertificate=false
 
-#   Database variables (own database)
-${dbname}    rpakurssi
-${dbuser}    robotuser
-${dbpass}    password
-${dbhost}    localhost
-${dbport}    3306
+${dbconnection}    server=ZOWIE\\SQLEXPRESS;database=RPA-DB;user=robocop;password=password;loginTimeout=30;encrypt=true;trustServerCertificate=false
 
-*** Keywords ***
+
+*** Keywords ***     
 Make Connection
-    #  keyword for making connection to database and setting it as global
-    [Arguments]    ${dbtoconnect}
-    Connect To Database    pymysql    ${dbtoconnect}    ${dbuser}    ${dbpass}    ${dbhost}    ${dbport}
+    [Arguments]    ${dbconnection}    
+    Connect To Database    ${dbconnection}
 
+    
 *** Keywords ***
 Add Row Data to List
     # own keyword for handling data row to be written to database
@@ -132,7 +130,19 @@ Add Invoice Row To DB
     ${insertStmt}=    Set Variable    insert into invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) values ('${items}[0]', '${items}[1]', '${items}[2]', '${items}[3]', '${items}[4]', '${items}[5]', '${items}[6]', '${items}[7]', '${items}[8]');
     Execute Sql String    ${insertStmt}
 
+
 *** Test Cases ***
+#  test db connection
+Test DB Connection
+    [Documentation]    Example test case to demonstrate database operations
+
+    Connect To Database    ${db_params}
+    Execute Sql String    SELECT * FROM invoiceheader
+    Log    ${result}
+    Disconnect From Database
+
+*** Test Cases ***
+#   Test case for reading data from CSV files and handling data
 Read CSV file to list
     # Read CSV files to variables
     ${outputHeader}=    Get File    InvoiceHeaderData.csv
@@ -161,6 +171,7 @@ Read CSV file to list
 
 
 *** Test Cases ***
+#   Test case for handling data and writing to database
 Loop all invoicerows
     # Loop through all elementis in row list and handle data
     FOR    ${element}    IN    @{rows}
@@ -177,7 +188,7 @@ Loop all invoicerows
 
         # Planning diagram shows that first we need to check if our invoice number is changing
         IF    '${rowInvoiceNumber}' == '${InvoiceNumber}'
-            Log    Lisätään rivejä laskulle
+            Log     adding row data to invoice
             
             # Add data to global list using own keyword
             Add Row Data to List    ${items}

@@ -1,8 +1,8 @@
 -- Create the RPA-DB database
-CREATE DATABASE [RPA-DB];
+CREATE DATABASE RPA_DB;
 
 -- Switch to the RPA-DB database context
-USE RPA-DB;
+USE RPA_DB;
 
 -- Create the InvoiceHeader table
 CREATE TABLE  InvoiceHeader (
