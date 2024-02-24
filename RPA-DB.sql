@@ -1,11 +1,11 @@
 -- Create the RPA-DB database
-CREATE DATABASE RPA-DB;
+CREATE DATABASE [RPA-DB];
 
 -- Switch to the RPA-DB database context
 USE RPA-DB;
 
 -- Create the InvoiceHeader table
-CREATE TABLE IF NOT EXISTS InvoiceHeader (
+CREATE TABLE  InvoiceHeader (
   invoicenumber INT NOT NULL,
   companyname VARCHAR(100) NULL,
   companycode VARCHAR(45) NOT NULL,
@@ -21,7 +21,7 @@ CREATE TABLE IF NOT EXISTS InvoiceHeader (
 );
 
 -- Create the InvoiceRow table
-CREATE TABLE IF NOT EXISTS InvoiceRow (
+CREATE TABLE  InvoiceRow (
   invoicenumber INT NOT NULL,
   rownumber INT NOT NULL,
   description VARCHAR(100) NOT NULL,
@@ -40,7 +40,7 @@ CREATE TABLE IF NOT EXISTS InvoiceRow (
 );
 
 -- Create the invoicestatus table
-CREATE TABLE IF NOT EXISTS invoicestatus (
+CREATE TABLE  invoicestatus (
   id INT NOT NULL,
   status VARCHAR(100) NOT NULL,
   PRIMARY KEY (id)
