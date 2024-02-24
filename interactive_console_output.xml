@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 6.1.1 (Python 3.11.5 on win32)" generated="20240224 12:23:56.215" rpa="false" schemaversion="4">
+<suite id="s1" name="Robot Interactive Console" source="c:\Users\immor\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_ls\vendored\robotframework_interactive\robot_interactive_console.robot">
+<test id="s1-t1" name="Default Task/Test" line="5">
+<kw name="Interpreter Main Loop" library="MainLoop">
+<kw name="Get File">
+<var>${outputHeader}</var>
+<arg>InvoiceHeaderData.csv</arg>
+<msg timestamp="20240224 12:23:56.844" level="FAIL">No keyword with name 'Get File' found. Did you mean:
+    BuiltIn.Get Time</msg>
+<status status="FAIL" starttime="20240224 12:23:56.844" endtime="20240224 12:23:56.844"/>
+</kw>
+<kw name="Get File">
+<var>${outputRows}</var>
+<arg>InvoiceRowData.csv</arg>
+<status status="NOT RUN" starttime="20240224 12:23:56.845" endtime="20240224 12:23:56.845"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${outputHeader}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240224 12:23:56.845" endtime="20240224 12:23:56.845"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${outputRows}</arg>
+<doc>Logs the given message with the given level.</doc>
+<status status="NOT RUN" starttime="20240224 12:23:56.845" endtime="20240224 12:23:56.845"/>
+</kw>
+<kw name="Split String">
+<var>@{headers}</var>
+<arg>${outputHeader}</arg>
+<arg>\n</arg>
+<status status="NOT RUN" starttime="20240224 12:23:56.846" endtime="20240224 12:23:56.846"/>
+</kw>
+<kw name="Split String">
+<var>@{rows}</var>
+<arg>${outputRows}</arg>
+<arg>\n</arg>
+<status status="NOT RUN" starttime="20240224 12:23:56.847" endtime="20240224 12:23:56.847"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${headers}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20240224 12:23:56.847" endtime="20240224 12:23:56.847"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${length}</var>
+<arg>${length}-1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240224 12:23:56.847" endtime="20240224 12:23:56.847"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${index}</var>
+<arg>0</arg>
+<doc>Converts the given item to an integer number.</doc>
+<status status="NOT RUN" starttime="20240224 12:23:56.848" endtime="20240224 12:23:56.848"/>
+</kw>
+<kw name="Remove From List">
+<arg>${headers}</arg>
+<arg>${length}</arg>
+<status status="NOT RUN" starttime="20240224 12:23:56.849" endtime="20240224 12:23:56.849"/>
+</kw>
+<kw name="Remove From List">
+<arg>${headers}</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" starttime="20240224 12:23:56.849" endtime="20240224 12:23:56.849"/>
+</kw>
+<kw name="Get Length" library="BuiltIn">
+<var>${length}</var>
+<arg>${rows}</arg>
+<doc>Returns and logs the length of the given item as an integer.</doc>
+<status status="NOT RUN" starttime="20240224 12:23:56.849" endtime="20240224 12:23:56.849"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${length}</var>
+<arg>${length}-1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240224 12:23:56.849" endtime="20240224 12:23:56.849"/>
+</kw>
+<kw name="Remove From List">
+<arg>${rows}</arg>
+<arg>${length}</arg>
+<status status="NOT RUN" starttime="20240224 12:23:56.850" endtime="20240224 12:23:56.850"/>
+</kw>
+<kw name="Remove From List">
+<arg>${rows}</arg>
+<arg>${index}</arg>
+<status status="NOT RUN" starttime="20240224 12:23:56.851" endtime="20240224 12:23:56.851"/>
+</kw>
+<status status="PASS" starttime="20240224 12:23:56.237" endtime="20240224 12:24:09.452"/>
+</kw>
+<status status="PASS" starttime="20240224 12:23:56.237" endtime="20240224 12:24:09.452"/>
+</test>
+<status status="PASS" starttime="20240224 12:23:56.217" endtime="20240224 12:24:09.453"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="0" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="0" skip="0" id="s1" name="Robot Interactive Console">Robot Interactive Console</stat>
+</suite>
+</statistics>
+<errors>
+</errors>
+</robot>

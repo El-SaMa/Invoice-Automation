@@ -7,14 +7,14 @@ Library    DateTime
 Library    validate.py
 
 *** Variables ***
-# Global variables
+#   Global variables
 ${PATH}     C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\InvoiceHeaderData.csv
 @{ListToDB}
 ${InvoiceNumber}    empty
 ${headers}
 ${rows}
 
-# database related variables
+#   Database variables (own database)
 ${dbname}    rpakurssi
 ${dbuser}    robotuser
 ${dbpass}    password
@@ -23,7 +23,7 @@ ${dbport}    3306
 
 *** Keywords ***
 Make Connection
-    # own keyword created to help DB-connection (Connect To Database is from DatabaseLibrary)
+    #  keyword for making connection to database and setting it as global
     [Arguments]    ${dbtoconnect}
     Connect To Database    pymysql    ${dbtoconnect}    ${dbuser}    ${dbpass}    ${dbhost}    ${dbport}
 
@@ -126,7 +126,7 @@ Check IBAN
 
 *** Keywords ***
 Add Invoice Row To DB
-    # own keyword for writing header data to database
+    # own keyword for writing header data to database 
     [Arguments]    ${items}
     Make Connection    ${dbname}
     ${insertStmt}=    Set Variable    insert into invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) values ('${items}[0]', '${items}[1]', '${items}[2]', '${items}[3]', '${items}[4]', '${items}[5]', '${items}[6]', '${items}[7]', '${items}[8]');
@@ -134,17 +134,17 @@ Add Invoice Row To DB
 
 *** Test Cases ***
 Read CSV file to list
-    #Make Connection    ${dbname}
+    # Read CSV files to variables
     ${outputHeader}=    Get File    InvoiceHeaderData.csv
     ${outputRows}=    Get File      InvoiceRowData.csv
     Log    ${outputHeader}
     Log    ${outputRows}
 
-    # Each row read as an element to list 
+    #   Split data to lists
     @{headers}=    Split String    ${outputHeader}    \n
     @{rows}=    Split String    ${outputRows}    \n
     
-    # Remove last row and first row from lists (last=empty and first=header)
+    #   Remove first and last element from lists (header and empty row)
     ${length}=    Get Length    ${headers}
     ${length}=    Evaluate    ${length}-1
     ${index}=    Convert To Integer    0
@@ -162,14 +162,14 @@ Read CSV file to list
 
 *** Test Cases ***
 Loop all invoicerows
-    # Loop through all elementis in row list
+    # Loop through all elementis in row list and handle data
     FOR    ${element}    IN    @{rows}
         Log    ${element}
         
-        # Read all different values as an element from CSV row to items-list
+        #   Split data to list for easier handling
         @{items}=    Split String    ${element}    ;
 
-        # Invoice number can be found from index 7
+        #  Get invoice number from row
         ${rowInvoiceNumber}=    Set Variable    ${items}[7]
 
         Log    ${rowInvoiceNumber}
