@@ -12,7 +12,7 @@ Library    validate.py
 ${InvoiceNumber}    empty
 
 # database related variables
-${dbname}    RPA_DB
+${dbname}    rpa_db
 ${dbuser}    robocop
 ${dbpass}    RPA.Password
 ${dbhost}    localhost

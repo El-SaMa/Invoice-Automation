@@ -10,25 +10,27 @@ Library    validate.py
 # Global variables
 @{ListToDB}
 ${InvoiceNumber}    empty
-${rows}    
-${headers}
+@{rows}    
+@{headers}
+${ListToDB}
+${InvoiceNumber}
 
 # database related variables
-${dbname}    RPA_DB
+${dbname}    rpa_db
 ${dbuser}    robocop
 ${dbpass}    RPA.Password
-${dbhost}    localhost
+${dbhost}    127.0.0.1
 ${dbport}    3306
 
 *** Keywords ***
 Make Connection
     # own keyword created to help DB-connection (Connect To Database is from DatabaseLibrary)
-    [Arguments]    ${dbname}
+    
     Connect To Database    pymysql    ${dbname}    ${dbuser}    ${dbpass}    ${dbhost}    ${dbport}
 
-*** Keywords ***
+*** Keywords *** 
 Add Row Data to List
-    # own keyword for handling data row to be written to database
+    # adding row data to list for further processing
     [Arguments]    ${items}
     
     @{AddInvoiceRowData}=    Create List
@@ -52,7 +54,7 @@ Add Invoice Header To DB
     #        * IBAN check
     #        * Invoice row amount vs. header amount
     [Arguments]    ${items}    ${rows}
-    Make Connection    ${dbname}
+    Make Connection    
     
     # 1) Convert dates to correct format
     ${innvoiceDate}=    Convert Date    ${items}[3]    date_format=%d.%m.%Y    result_format=%Y-%m-%d
@@ -84,8 +86,10 @@ Add Invoice Header To DB
         ${commentOfInvoice}=    Set Variable    Amount difference
     END
 
-    ${insertStmt}=    Set Variable    insert into invoiceheader (invoicenumber, companyname, companycode, referencenumber, invoicedate, duedate, bankaccountnumber, amountexclvat, vat, totalamount, comment) values ('${items}[0]', '${items}[1]', '${items}[5]', '${items}[2]', '${innvoiceDate}', '${dueDate}', '${items}[6]', '${items}[7]', '${items}[8]', '${items}[9]', '${commentOfInvoice}');
-    #Log    ${insertStmt}
+    ${insertStmt}=    Set Variable    INSERT INTO invoiceheader (invoicenumber, companyname, companycode, referencenumber, invoicedate, duedate, bankaccountnumber, amountexclvat, vat, totalamount, comment) VALUES (${items}[0], '${items}[1]', '${items}[5]', '${items}[2]', ${innvoiceDate}, ${dueDate}, '${items}[6]', ${items}[7], ${items}[8], ${items}[9], '${commentOfInvoice}');
+    
+    Log    ${insertStmt}    # Log the SQL string before executing it
+
     Execute Sql String    ${insertStmt}
 
 *** Keywords ***
@@ -127,10 +131,18 @@ Check IBAN
 Add Invoice Row To DB
     # own keyword for writing header data to database
     [Arguments]    ${items}
-    Make Connection    ${dbname}
-    ${insertStmt}=    Set Variable    insert into invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) values ('${items}[0]', '${items}[1]', '${items}[2]', '${items}[3]', '${items}[4]', '${items}[5]', '${items}[6]', '${items}[7]', '${items}[8]');
+    Make Connection 
+    ${insertStmt}=    Set Variable    insert into invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) values (${items}[0], ${items}[1], '${items}[2]', ${items}[3], '${items}[4]', ${items}[5], ${items}[6], ${items}[7], ${items}[8]);
+    Log    ${insertStmt}    # Log the SQL string before executing it
+
     Execute Sql String    ${insertStmt}
 
+*** Test Cases ***
+Test Make Connection Keyword
+    Make Connection  
+    ${query_result}=    Query    SELECT VERSION()
+    Log To Console    Query executed. Result: ${query_result}
+    Disconnect From Database
 *** Test Cases ***
 Read CSV file to list
     # Read CSV files to variables
@@ -158,15 +170,10 @@ Read CSV file to list
     Remove From List    ${rows}    ${index}
     
 
-*** Test Cases ***
-Test Make Connection Keyword
-    Make Connection    ${dbname}
-    ${query_result}=    Query    SELECT VERSION()
-    Log To Console    Query executed. Result: ${query_result}
-    Disconnect From Database
+
 *** Test Cases ***
 Loop all invoicerows
-    # Loop through all elementis in row list
+    # Loop through all elements in row list
     FOR    ${element}    IN    @{rows}
         Log    ${element}
         
@@ -190,22 +197,27 @@ Loop all invoicerows
             Log    check if there is rows to be written to list
             ${length}=    Get Length    ${ListToDB}
             IF    ${length} == ${0}
-                Log    Ensimmäisen laskun tapaus
+                Log    first invoice
                 # update invoice number to be handled and set as global
                 ${InvoiceNumber}=    Set Variable    ${rowInvoiceNumber}
-                Set Global Variable    ${InvoiceNumber}
+                  
 
                 # Add data to global list using own keyword
                 Add Row Data to List    ${items}
             ELSE
-                Log    Lasku vaihtuu, pitää käsitellä myös otsikkodata
+                Log    invoice changing
                 # If invoice is changing we need to find header data
+
+
+
+
+                # loop through all elements in header list
                 FOR    ${headerElement}    IN    @{headers}
                     ${headerItems}=    Split String    ${headerElement}    ;
                     IF    '${headerItems}[0]' == '${InvoiceNumber}'
-                        Log    Lasku löytyi
+                        Log    invoice found
 
-                        # TODO: Validations!
+                        
 
                         # Add header data to database using own keyword
                         Add Invoice Header To DB    ${headerItems}    ${ListToDB}
@@ -221,9 +233,7 @@ Loop all invoicerows
 
                 # Set process for new round
                 @{ListToDB}    Create List
-                Set Global Variable    ${ListToDB}
-                ${InvoiceNumber}=    Set Variable    ${rowInvoiceNumber}
-                Set Global Variable    ${InvoiceNumber}
+                ${InvoiceNumber}=    Set Variable    ${rowInvoiceNumber}   
 
                 # Add data to global list using own keyword
                 Add Row Data to List    ${items}
@@ -234,15 +244,15 @@ Loop all invoicerows
 
     END
 
-    # Case for last invoice
+    # Last invoice handling
     ${length}=    Get Length    ${ListToDB}
     IF    ${length} > ${0}
-        Log    Viimeisen laskun otsikkokäsittely
+        Log    last invoice handling
         # Fins invoice header
         FOR    ${headerElement}    IN    @{headers}
             ${headerItems}=    Split String    ${headerElement}    ;
             IF    '${headerItems}[0]' == '${InvoiceNumber}'
-                Log    Lasku löytyi
+                Log    invoice found
 
                 # Add header data to database using own keyword
                 Add Invoice Header To DB    ${headerItems}    ${ListToDB}

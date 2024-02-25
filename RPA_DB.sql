@@ -1,8 +1,8 @@
-  -- Create the RPA-DB database
-  CREATE DATABASE RPA_DB;
+  -- Create the rpa_db database
+  CREATE DATABASE rpa_db;
 
-  -- Switch to the RPA-DB database context
-  USE RPA_DB;
+  -- Switch to the rpa_db database context
+  USE rpa_db;
 
   -- Create the InvoiceHeader table
   CREATE TABLE  InvoiceHeader (
@@ -55,7 +55,7 @@
   -- Create the robocop login
   CREATE LOGIN robocop WITH PASSWORD = 'password';
 
-  -- Create a user for robocop in the RPA-DB database
+  -- Create a user for robocop in the rpa_db database
   CREATE USER robocop FOR LOGIN robocop WITH DEFAULT_SCHEMA = dbo;
 
   -- Create the robotrole role
