@@ -22,11 +22,10 @@ ${dbuser}    robocop
 ${dbpass}    RPA.Password
 ${dbhost}    127.0.0.1
 ${dbport}    3306
+
 *** Keywords ***
 Add Row Data to List
-    # own keyword for handling data row to be written to database
     [Arguments]    ${items}
-    
     @{AddInvoiceRowData}=    Create List
     Append To List    ${AddInvoiceRowData}    ${InvoiceNumber}
     Append To List    ${AddInvoiceRowData}    ${items}[8]
@@ -37,14 +36,11 @@ Add Row Data to List
     Append To List    ${AddInvoiceRowData}    ${items}[4]
     Append To List    ${AddInvoiceRowData}    ${items}[5]
     Append To List    ${AddInvoiceRowData}    ${items}[6]
-    
     Append To List    ${ListToDB}    ${AddInvoiceRowData}
-*** Keywords ***
+
 Make Connection
-    # own keyword created to help DB-connection (Connect To Database is from DatabaseLibrary)
     Connect To Database    pymysql    ${dbname}    ${dbuser}    ${dbpass}    ${dbhost}    ${dbport}
 
-*** Keywords ***
 Add Invoice Header To DB
     [Arguments]    ${items}    ${rows}
     Make Connection    
@@ -77,15 +73,11 @@ Add Invoice Header To DB
     ${result}=    Execute Sql String    ${insertHeaderStmt}
     Run Keyword If    '${result}' == 'FAIL'    Log    Error executing SQL: ${result}
 
-*** Keywords ***
 Add Invoice Row To DB
-    # own keyword for writing header data to database
     [Arguments]    ${items}
     Make Connection   # Connect to database
     # Construct invoice row SQL statement
     ${insertRowStmt}=    Set Variable    INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES (${items}[7], ${items}[8], '${items}[0]', ${items}[1], '${items}[2]', ${items}[3], ${items}[4], ${items}[5], ${items}[6]);
-
-
 
     Log    ${insertRowStmt}    # Log the SQL string before executing it
     Execute Sql String    ${insertStmt}
@@ -97,7 +89,6 @@ Test Make Connection Keyword
     Log To Console    Query executed. Result: ${query_result}
     Disconnect From Database
 
-*** Test Cases ***
 Read CSV file to list
     # Read CSV files to variables
     ${outputHeader}=    Get File    InvoiceHeaderData.csv
@@ -123,7 +114,6 @@ Read CSV file to list
     Remove From List    ${rows}    ${length}
     Remove From List    ${rows}    ${index}
 
-*** Test Cases ***
 Loop all invoicerows
     # Loop through all elements in row list
     FOR    ${element}    IN    @{rows}

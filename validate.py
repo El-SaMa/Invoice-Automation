@@ -1,7 +1,7 @@
 def isRefCorrect(referencenumber):
     
     listed = list(referencenumber)
-
+    #print (listed)
     checknumber = listed.pop()
     totalAmount = 0
     product = 1
