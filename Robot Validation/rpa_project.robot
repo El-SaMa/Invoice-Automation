@@ -20,7 +20,7 @@ ${innvoiceDate}
 ${dbname}    rpa_db
 ${dbuser}    robocop
 ${dbpass}    RPA.Password
-${dbhost}    127.0.0.1
+${dbhost}    localhost
 ${dbport}    3306
 *** Keywords ***
 Add Row Data to List
