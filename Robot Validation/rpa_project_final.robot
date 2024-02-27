@@ -3,7 +3,6 @@ Library           DatabaseLibrary
 Library           OperatingSystem
 Library           Collections
 Library           String
-Library           validate.py
 
 *** Variables ***
 ${dbname}         rpa_db
@@ -19,6 +18,7 @@ Make Connection
     Connect To Database    pymysql    ${dbname}    ${dbuser}    ${dbpass}    ${dbhost}    ${dbport}
 
 Clear Existing Data
+    [Documentation]    Clear existing data from the database for testing purposes
     Make Connection
     ${deleteRowsQuery}=    Set Variable    DELETE FROM invoicerow
     Execute Sql String    ${deleteRowsQuery}
@@ -26,26 +26,28 @@ Clear Existing Data
     Execute Sql String    ${deleteHeadersQuery}
 
 Read CSV File
+    # Read the file and return the lines as a list
     [Arguments]    ${filename}
     ${file_path}=    Get File    ${filename}
     @{lines}=    Split To Lines    ${file_path}
     [Return]    @{lines}
 
-*** Keywords ***
-Validate Reference Number
+Is Reference Number Correct
     [Arguments]    ${refNumber}
-    [Return]    Run Keyword And Return Status    validate.py.isRefCorrect    ${refNumber}
+    ${correct}=    Evaluate    len("${refNumber}") == 7 and "${refNumber}".isdigit()
+    [Return]    ${correct}
 
-Validate IBAN
+Is IBAN Correct
     [Arguments]    ${iban}
-    [Return]    Run Keyword And Return Status    validate.py.Check IBAN    ${iban}
+    ${correct}=    Evaluate    "${iban}"[:2].isalpha() and "${iban}"[:2].isupper() and len("${iban}") == 22
+    [Return]    ${correct}
 
 Insert Invoice Header To DB
     [Arguments]    ${header}
     Make Connection
     @{headerDetails}=    Split String    ${header}    ;
-    ${isRefCorrect}=    Validate Reference Number    ${headerDetails[2]}
-    ${ibanValid}=    Validate IBAN    ${headerDetails[6]}
+    ${isRefCorrect}=    Is Reference Number Correct    ${headerDetails[2]}
+    ${ibanValid}=    Is IBAN Correct    ${headerDetails[6]}
     ${statusOfInvoice}=    Evaluate    0 if ${isRefCorrect} and ${ibanValid} else 1 if not ${isRefCorrect} else 2
     ${commentOfInvoice}=    Set Variable If    ${statusOfInvoice}==1    Reference number error    IBAN number error
     ${commentOfInvoice}=    Set Variable If    ${statusOfInvoice}==0    All ok    ${commentOfInvoice}
