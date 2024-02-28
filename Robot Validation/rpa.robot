@@ -3,7 +3,7 @@ Library           DatabaseLibrary
 Library           OperatingSystem
 Library           Collections
 Library           String
-Library           Total.py
+Library           total.py
 
 *** Variables ***
 ${dbname}         rpa_db
@@ -41,7 +41,7 @@ Is Reference Number Correct
     ${correct}=    Evaluate    len("${refNumber}") == 7 and "${refNumber}".isdigit()
     [Return]    ${correct}
 
-Is IBAN Correct
+Check IBAN
     [Arguments]    ${iban}
     ${correct}=    Evaluate    "${iban}"[:2].isalpha() and "${iban}"[:2].isupper() and len("${iban}") == 22
     [Return]    ${correct}
@@ -58,22 +58,32 @@ Calculate Total Amount From Rows
     @{rows}=    Read CSV File    ${row_csv}
     FOR    ${row}    IN    @{rows}[1:]
         @{rowDetails}=    Split String    ${row}    ;
-        ${rowAmount}=    Convert To Number    ${rowDetails[6]}
-        Run Keyword If    '${rowDetails[7]}' == '${invoiceNumber}'
-        ...    Evaluate    ${totalAmount} + ${rowAmount}
+        ${rowAmount}=    Run Keyword If    '${rowDetails[7]}' == '${invoiceNumber}'
+        ...    Convert To Number    ${rowDetails[6]}
+        ...    ELSE    Set Variable    0
+        ${totalAmount}=    Evaluate    ${totalAmount} + ${rowAmount}
     END
     [Return]    ${totalAmount}
+
 
 Insert Invoice Header To DB
     [Arguments]    ${header}    ${calculatedTotal}
     Make Connection
+
     @{headerDetails}=    Split String    ${header}    ;
-    ${isRefCorrect}=    Is Reference Number Correct    ${headerDetails[2]}
-    ${ibanValid}=    Is IBAN Correct    ${headerDetails[6]}
-    ${headerTotal}=    Convert To Number    ${headerDetails[9]}  # Assuming this is the total amount in header
-    ${amountValid}=    Is Total Amount Valid    ${headerDetails[0]}    ${headerTotal}
-    ${comment}=    Set Variable If    ${amountValid}    All ok    Total amount mismatch: Expected=${headerTotal}, Calculated=${calculatedTotal}
-    ${statusOfInvoice}=    Evaluate    0 if ${isRefCorrect} and ${ibanValid} and ${amountValid} else 1 if not ${isRefCorrect} else 2 if not ${ibanValid} else 3
+    ${refResult}=    Is Reference Number Correct    ${headerDetails[2]}
+    ${ibanResult}=    Check IBAN    ${headerDetails[6]}
+    ${amountValid}=    Is Total Amount Valid    ${headerDetails[0]}    ${headerDetails[9]}
+
+    ${statusOfInvoice}=    Set Variable If    not ${refResult}    1    0
+    ${statusOfInvoice}=    Set Variable If    not ${ibanResult}    2    ${statusOfInvoice}
+    ${statusOfInvoice}=    Set Variable If    not ${amountValid}    3    ${statusOfInvoice}
+
+    ${comment}=    Set Variable If    ${statusOfInvoice}==0    All ok
+    ${comment}=    Set Variable If    ${statusOfInvoice}==1    Reference number error    ${comment}
+    ${comment}=    Set Variable If    ${statusOfInvoice}==2    ${comment}, + IBAN number error    ${comment}
+    ${comment}=    Set Variable If    ${statusOfInvoice}==3    ${comment}, + Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}    ${comment}
+
     ${query}=    Catenate    SEPARATOR=    INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment) VALUES ('${headerDetails[0]}', '${headerDetails[1]}', '${headerDetails[2]}', '${headerDetails[3]}', '${headerDetails[4]}', '${headerDetails[5]}', '${headerDetails[6]}', ${headerDetails[7]}, ${headerDetails[8]}, ${headerDetails[9]}, '${comment}')
     Execute Sql String    ${query}
     Close Connection
@@ -81,19 +91,23 @@ Insert Invoice Header To DB
 Insert Invoice Rows To DB
     [Arguments]    @{rows}
     Make Connection
+
     FOR    ${row}    IN    @{rows}
         @{rowDetails}=    Split String    ${row}    ;
+
         ${query}=    Catenate    SEPARATOR=    INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})
         Execute Sql String    ${query}
     END
+    Close Connection
 
 *** Test Cases ***
 Process Invoice Data
+    [Documentation]    Process invoice data by inserting header and row information into the database
     Clear Existing Data
     ${headerLines}=    Read CSV File    ${header_csv}
     ${rows}=    Read CSV File    ${row_csv}
     FOR    ${header}    IN    @{headerLines}[1:]
         ${calculatedTotal}=    Calculate Total Amount From Rows    ${header[0]}
-        Insert Invoice Header To DB    ${header}    ${calculatedTotal}
+        Insert Invoice Header To DB    ${header}    ${calculatedTotal}   # Pass calculatedTotal here
     END
     Insert Invoice Rows To DB    @{rows[1:]}

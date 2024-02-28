@@ -1,11 +1,8 @@
-  -- Create the rpa_db database
-  CREATE DATABASE rpa_db;
+CREATE DATABASE IF NOT EXISTS rpa_db;
 
-  -- Switch to the rpa_db database context
-  USE rpa_db;
+USE rpa_db;
 
-  -- Create the InvoiceHeader table
-  CREATE TABLE  InvoiceHeader (
+CREATE TABLE IF NOT EXISTS InvoiceHeader (
     invoicenumber INT NOT NULL,
     companyname VARCHAR(100) NULL,
     companycode VARCHAR(45) NOT NULL,
@@ -18,10 +15,9 @@
     totalamount DECIMAL(10,2) NOT NULL,
     comment VARCHAR(100),
     PRIMARY KEY (invoicenumber)
-  );
+);
 
-  -- Create the InvoiceRow table
-  CREATE TABLE  InvoiceRow (
+CREATE TABLE IF NOT EXISTS InvoiceRow (
     invoicenumber INT NOT NULL,
     rownumber INT NOT NULL,
     description VARCHAR(100) NOT NULL,
@@ -33,38 +29,20 @@
     total DECIMAL(10,2) NOT NULL,
     PRIMARY KEY (invoicenumber, rownumber),
     CONSTRAINT fk_InvoiceRow_InvoiceHeader
-      FOREIGN KEY (invoicenumber)
-      REFERENCES InvoiceHeader (invoicenumber)
-      ON DELETE NO ACTION
-      ON UPDATE NO ACTION
-  );
+        FOREIGN KEY (invoicenumber)
+        REFERENCES InvoiceHeader (invoicenumber)
+        ON DELETE NO ACTION
+        ON UPDATE NO ACTION
+);
 
-  -- Create the invoicestatus table
-  CREATE TABLE  invoicestatus (
+CREATE TABLE IF NOT EXISTS invoicestatus (
     id INT NOT NULL,
     status VARCHAR(100) NOT NULL,
     PRIMARY KEY (id)
-  );
+);
 
-  -- Purpose: This file contains the initial data that is required for the application to work properly.
-  INSERT INTO invoicestatus (id, status) VALUES (0, 'All ok'); 
-  INSERT INTO invoicestatus (id, status) VALUES (1, 'ref error');
-  INSERT INTO invoicestatus (id, status) VALUES (2, 'iban error');
-  INSERT INTO invoicestatus (id, status) VALUES (3, 'amount error');
+CREATE USER 'robocop'@'localhost' IDENTIFIED BY 'password';
 
-  -- Create the robocop login
-  CREATE LOGIN robocop WITH PASSWORD = 'password';
+GRANT ALL PRIVILEGES ON rpa_db.* TO 'robocop'@'localhost';
 
-  -- Create a user for robocop in the rpa_db database
-  CREATE USER robocop FOR LOGIN robocop WITH DEFAULT_SCHEMA = dbo;
-
-  -- Create the robotrole role
-  CREATE ROLE robotrole;
-
-  -- Assign the robotrole role to the robocop user
-  ALTER ROLE robotrole ADD MEMBER robocop;
-
-  -- Grant permissions to the robotrole role
-  GRANT SELECT, INSERT, UPDATE ON InvoiceHeader TO robotrole; 
-  GRANT SELECT, INSERT, UPDATE ON InvoiceRow TO robotrole;
-  GRANT SELECT ON invoicestatus TO robotrole;
+FLUSH PRIVILEGES;
