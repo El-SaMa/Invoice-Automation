@@ -43,15 +43,9 @@ Is Reference Number Correct
 
 Check IBAN
     [Arguments]    ${iban}
+    # Check if the IBAN is valid by checking the length and the first two characters are letters and the rest are digits (22 characters in total)
     ${correct}=    Evaluate    "${iban}"[:2].isalpha() and "${iban}"[:2].isupper() and len("${iban}") == 22
     [Return]    ${correct}
-
-Is Total Amount Valid
-    [Arguments]    ${invoiceNumber}    ${headerTotal}
-    ${calculatedTotal}=    Calculate Total Amount From Rows    ${invoiceNumber}
-    ${isValid}=    Evaluate    ${calculatedTotal} == ${headerTotal}
-    [Return]    ${isValid}
-
 Calculate Total Amount From Rows
     [Arguments]    ${invoiceNumber}
     ${totalAmount}=    Set Variable    ${0}
@@ -65,6 +59,11 @@ Calculate Total Amount From Rows
     END
     [Return]    ${totalAmount}
 
+Is Total Amount Valid
+    [Arguments]    ${invoiceNumber}    ${headerTotal}
+    ${calculatedTotal}=    Calculate Total Amount From Rows    ${invoiceNumber}
+    ${isValid}=    Evaluate    ${calculatedTotal} == ${headerTotal}
+    [Return]    ${isValid}
 
 Insert Invoice Header To DB
     [Arguments]    ${header}    ${calculatedTotal}
@@ -84,7 +83,7 @@ Insert Invoice Header To DB
     ${comment}=    Set Variable If    ${statusOfInvoice}==2    ${comment}, + IBAN number error    ${comment}
     ${comment}=    Set Variable If    ${statusOfInvoice}==3    ${comment}, + Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}    ${comment}
 
-    ${query}=    Catenate    SEPARATOR=    INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment) VALUES ('${headerDetails[0]}', '${headerDetails[1]}', '${headerDetails[2]}', '${headerDetails[3]}', '${headerDetails[4]}', '${headerDetails[5]}', '${headerDetails[6]}', ${headerDetails[7]}, ${headerDetails[8]}, ${headerDetails[9]}, '${comment}')
+    ${query}=    Catenate    SEPARATOR=    INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('${headerDetails[0]}', '${headerDetails[1]}', '${headerDetails[2]}', '${headerDetails[3]}', '${headerDetails[4]}', '${headerDetails[5]}', '${headerDetails[6]}', ${headerDetails[7]}, ${headerDetails[8]}, ${headerDetails[9]}, '${comment}', '${statusOfInvoice}')
     Execute Sql String    ${query}
     Close Connection
 
@@ -99,11 +98,13 @@ Insert Invoice Rows To DB
         Execute Sql String    ${query}
     END
     Close Connection
-
 *** Test Cases ***
+Test Database Connection Close and Clean
+    [Documentation]    Tests if the database connection can be closed and the data cleaned effectively.
+    Make Connection
+    Clear Existing Data
 Process Invoice Data
     [Documentation]    Process invoice data by inserting header and row information into the database
-    Clear Existing Data
     ${headerLines}=    Read CSV File    ${header_csv}
     ${rows}=    Read CSV File    ${row_csv}
     FOR    ${header}    IN    @{headerLines}[1:]
