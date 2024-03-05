@@ -1,9 +1,15 @@
--- Create the rpa_db database if it doesn't exist
-CREATE DATABASE IF NOT EXISTS rpa_db;
+-- Create the rpa_db database
+CREATE DATABASE rpa_db;
 USE rpa_db;
 
+-- Create InvoiceStatus table with status ID and description
+CREATE TABLE invoicestatus (
+    id INT NOT NULL,
+    status VARCHAR(100) NOT NULL,
+    PRIMARY KEY (id)
+);
 -- Create InvoiceHeader table with an added InvoiceStatus_id column for status reference
-CREATE TABLE IF NOT EXISTS InvoiceHeader (
+CREATE TABLE InvoiceHeader (
     invoicenumber INT NOT NULL,
     companyname VARCHAR(100) NULL,
     companycode VARCHAR(45) NOT NULL,
@@ -25,7 +31,7 @@ CREATE TABLE IF NOT EXISTS InvoiceHeader (
 );
 
 -- Create InvoiceRow table with specified fields and foreign key to InvoiceHeader
-CREATE TABLE IF NOT EXISTS InvoiceRow (
+CREATE TABLE InvoiceRow (
     invoicenumber INT NOT NULL,
     rownumber INT NOT NULL,
     description VARCHAR(100) NOT NULL,
@@ -43,17 +49,11 @@ CREATE TABLE IF NOT EXISTS InvoiceRow (
         ON UPDATE NO ACTION
 );
 
--- Create InvoiceStatus table with status ID and description
-CREATE TABLE IF NOT EXISTS invoicestatus (
-    id INT NOT NULL,
-    status VARCHAR(100) NOT NULL,
-    PRIMARY KEY (id)
-);
-
 -- User and role configuration
--- Create the user 'robocop' with the specified password if it doesn't already exist
+-- Create the user 'robocop' with the specified password
 CREATE USER IF NOT EXISTS 'robocop'@'localhost' IDENTIFIED BY 'RPA.Password';
--- Grant Privileges to robocop
+
+-- Apply privileges to the user robocop
 GRANT ALL PRIVILEGES ON rpa_db.* TO 'robocop'@'localhost';
 
 -- Apply the changes
