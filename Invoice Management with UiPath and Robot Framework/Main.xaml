@@ -1,4 +1,4 @@
-<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="873.3333333333334,5604.666666666667" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+<Activity mc:Ignorable="sap sap2010" x:Class="Main" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="854,3957.3333333333335" sap2010:WorkflowViewState.IdRef="ActivityBuilder_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
   <TextExpression.NamespacesForImplementation>
     <scg:List x:TypeArguments="x:String" Capacity="33">
       <x:String>System.Activities</x:String>
@@ -94,7 +94,7 @@
       <AssemblyReference>UiPath.Workflow</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="769.3333333333334,5574.666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence DisplayName="Main Sequence" sap:VirtualizedContainerService.HintSize="769.3333333333334,3959.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="path" />
       <Variable x:TypeArguments="s:String[]" Name="files" />
@@ -144,13 +144,13 @@
         </InArgument>
       </Assign.Value>
     </Assign>
-    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check all invoices and collect header level data&#xA;" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="707.3333333333334,4614.666666666667" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+    <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" sap2010:Annotation.AnnotationText="Check all invoices and collect header level data&#xA;" DisplayName="For Each" sap:VirtualizedContainerService.HintSize="707.3333333333334,2999.3333333333335" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
       <ui:ForEach.Body>
         <ActivityAction x:TypeArguments="x:String">
           <ActivityAction.Argument>
             <DelegateInArgument x:TypeArguments="x:String" Name="file" />
           </ActivityAction.Argument>
-          <Sequence DisplayName="Body - Invoices For Each" sap:VirtualizedContainerService.HintSize="670.6666666666666,4440" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <Sequence DisplayName="Body - Invoices For Each" sap:VirtualizedContainerService.HintSize="670.6666666666666,2824.6666666666665" sap2010:WorkflowViewState.IdRef="Sequence_2">
             <Sequence.Variables>
               <Variable x:TypeArguments="x:String" Name="pdftext" />
               <Variable x:TypeArguments="s:String[]" Name="splittedInvoice" />
@@ -216,7 +216,7 @@
               </ui:LogMessage.Message>
             </ui:LogMessage>
             <ui:Comment sap:VirtualizedContainerService.HintSize="608.6666666666666,56.666666666666664" sap2010:WorkflowViewState.IdRef="Comment_3" Text="Based on Company Get HeaderData" />
-            <Switch x:TypeArguments="x:String" DisplayName="Switch" sap:VirtualizedContainerService.HintSize="608.6666666666666,1785.3333333333333" sap2010:WorkflowViewState.IdRef="Switch`1_1">
+            <Switch x:TypeArguments="x:String" DisplayName="Switch" sap:VirtualizedContainerService.HintSize="608.6666666666666,170" sap2010:WorkflowViewState.IdRef="Switch`1_1">
               <Switch.Default>
                 <Sequence sap:VirtualizedContainerService.HintSize="400,205" sap2010:WorkflowViewState.IdRef="Sequence_8">
                   <sap:WorkflowViewStateService.ViewState>
@@ -401,7 +401,7 @@
                   </ui:AddDataRow.DataTable>
                 </ui:AddDataRow>
               </Sequence>
-              <Sequence x:Key="1234567-9" sap:VirtualizedContainerService.HintSize="496,2471.3333333333335" sap2010:WorkflowViewState.IdRef="Sequence_9">
+              <Sequence x:Key="1234567-9" sap:VirtualizedContainerService.HintSize="496,2468" sap2010:WorkflowViewState.IdRef="Sequence_9">
                 <sap:WorkflowViewStateService.ViewState>
                   <scg:Dictionary x:TypeArguments="x:String, x:Object">
                     <x:Boolean x:Key="IsExpanded">True</x:Boolean>
