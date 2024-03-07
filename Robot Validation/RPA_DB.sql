@@ -9,7 +9,7 @@ CREATE TABLE invoicestatus (
     PRIMARY KEY (id)
 );
 -- Create InvoiceHeader table with an added InvoiceStatus_id column for status reference
-CREATE TABLE InvoiceHeader (
+CREATE TABLE InvoiceHeader (invoicestatusidstatus
     invoicenumber INT NOT NULL,
     companyname VARCHAR(100) NULL,
     companycode VARCHAR(45) NOT NULL,
