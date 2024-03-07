@@ -43,7 +43,7 @@ Is Reference Number Correct
 
 Check IBAN
     [Arguments]    ${iban}
-    # Check if the IBAN is valid by checking the length and the first two characters are letters and the rest are digits (22 characters in total)
+    # check if the first two characters are letters and the length is 22
     ${correct}=    Evaluate    "${iban}"[:2].isalpha() and "${iban}"[:2].isupper() and len("${iban}") == 22
     [Return]    ${correct}
 Calculate Total Amount From Rows
@@ -59,10 +59,11 @@ Calculate Total Amount From Rows
     END
     [Return]    ${totalAmount}
 
+
 Is Total Amount Valid
     [Arguments]    ${invoiceNumber}    ${headerTotal}
     ${calculatedTotal}=    Calculate Total Amount From Rows    ${invoiceNumber}
-    ${isValid}=    Evaluate    ${calculatedTotal} == ${headerTotal}
+    ${isValid}=    Evaluate    float(${calculatedTotal}) == float(${headerTotal})
     [Return]    ${isValid}
 
 Insert Invoice Header To DB
@@ -70,18 +71,48 @@ Insert Invoice Header To DB
     Make Connection
 
     @{headerDetails}=    Split String    ${header}    ;
+    Log    ${headerDetails}
     ${refResult}=    Is Reference Number Correct    ${headerDetails[2]}
     ${ibanResult}=    Check IBAN    ${headerDetails[6]}
     ${amountValid}=    Is Total Amount Valid    ${headerDetails[0]}    ${headerDetails[9]}
+    ${statusOfInvoice}=    Set Variable    0
 
-    ${statusOfInvoice}=    Set Variable If    not ${refResult}    1    0
-    ${statusOfInvoice}=    Set Variable If    not ${ibanResult}    2    ${statusOfInvoice}
-    ${statusOfInvoice}=    Set Variable If    not ${amountValid}    3    ${statusOfInvoice}
+    # Initialize error counter
+    ${errorCount}=    Set Variable    0
+    ${comment}=       Set Variable    All ok
 
-    ${comment}=    Set Variable If    ${statusOfInvoice}==0    All ok
-    ${comment}=    Set Variable If    ${statusOfInvoice}==1    Reference number error    ${comment}
-    ${comment}=    Set Variable If    ${statusOfInvoice}==2    ${comment}, + IBAN number error    ${comment}
-    ${comment}=    Set Variable If    ${statusOfInvoice}==3    ${comment}, + Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}    ${comment}
+    # Check for reference number error
+    IF    not ${refResult}
+        ${errorCount}=    Evaluate    ${errorCount} + 1
+        ${comment}=    Set Variable    Reference number error
+        ${statusOfInvoice}=    Set Variable    1
+    END
+
+    # Check for IBAN error
+    IF    not ${ibanResult}
+        ${errorCount}=    Evaluate    ${errorCount} + 1
+        ${comment}=    Set Variable If    ${errorCount} > 1    ${comment} + and IBAN number error    IBAN number error
+        ${statusOfInvoice}=    Set Variable If    ${errorCount} == 1    2    ${statusOfInvoice}
+    END
+
+    # Check for total amount mismatch
+    IF    not ${amountValid}
+        ${errorCount}=    Evaluate    ${errorCount} + 1
+        ${comment}=    Set Variable If    ${errorCount} > 1    ${comment} + and Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}    Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}
+        # Set status to 3 if it is the first error, otherwise keep the previous status
+        ${statusOfInvoice}=    Set Variable If    ${errorCount} == 1    3    ${statusOfInvoice}
+    END
+
+    # If multiple errors, update status and prepend comment with "Multiple errors"
+    IF    ${errorCount} > 1
+        ${statusOfInvoice}=    Set Variable    4
+        ${comment}=    Set Variable    Multiple errors: ${comment}
+    ELSE IF    ${errorCount} == 0
+        ${statusOfInvoice}=    Set Variable    0
+        ${comment}=    Set Variable    All ok
+    END
+
+
 
     ${query}=    Catenate    SEPARATOR=    INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('${headerDetails[0]}', '${headerDetails[1]}', '${headerDetails[2]}', '${headerDetails[3]}', '${headerDetails[4]}', '${headerDetails[5]}', '${headerDetails[6]}', ${headerDetails[7]}, ${headerDetails[8]}, ${headerDetails[9]}, '${comment}', '${statusOfInvoice}')
     Execute Sql String    ${query}

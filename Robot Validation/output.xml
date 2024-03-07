@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20240305 22:03:22.082" rpa="false" schemaversion="4">
-<suite id="s1" name="Rpa" source="c:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\rpa.robot">
-<test id="s1-t1" name="Test Database Connection Close and Clean" line="102">
+<robot generator="Robot 6.1.1 (Python 3.12.0 on win32)" generated="20240307 13:25:56.495" rpa="false" schemaversion="4">
+<suite id="s1" name="Rpa" source="c:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\rpa.robot">
+<test id="s1-t1" name="Test Database Connection Close and Clean" line="133">
 <kw name="Make Connection">
 <kw name="Connect To Database" library="DatabaseLibrary">
 <arg>pymysql</arg>
@@ -12,10 +12,10 @@
 <arg>${dbport}</arg>
 <doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
 connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
-<msg timestamp="20240305 22:03:22.190" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
-<status status="PASS" starttime="20240305 22:03:22.142" endtime="20240305 22:03:22.198"/>
+<msg timestamp="20240307 13:25:56.608" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
+<status status="PASS" starttime="20240307 13:25:56.557" endtime="20240307 13:25:56.627"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.142" endtime="20240305 22:03:22.198"/>
+<status status="PASS" starttime="20240307 13:25:56.556" endtime="20240307 13:25:56.627"/>
 </kw>
 <kw name="Clear Existing Data">
 <doc>Clear existing data from the database for testing purposes</doc>
@@ -29,52 +29,52 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <arg>${dbport}</arg>
 <doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
 connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
-<msg timestamp="20240305 22:03:22.198" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
-<msg timestamp="20240305 22:03:22.207" level="WARN">Overwriting not closed connection.</msg>
-<status status="PASS" starttime="20240305 22:03:22.198" endtime="20240305 22:03:22.207"/>
+<msg timestamp="20240307 13:25:56.630" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
+<msg timestamp="20240307 13:25:56.631" level="WARN">Overwriting not closed connection.</msg>
+<status status="PASS" starttime="20240307 13:25:56.629" endtime="20240307 13:25:56.632"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.198" endtime="20240305 22:03:22.207"/>
+<status status="PASS" starttime="20240307 13:25:56.628" endtime="20240307 13:25:56.632"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${delete_rows_query}</var>
 <arg>DELETE FROM invoicerow</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240305 22:03:22.207" level="INFO">${delete_rows_query} = DELETE FROM invoicerow</msg>
-<status status="PASS" starttime="20240305 22:03:22.207" endtime="20240305 22:03:22.207"/>
+<msg timestamp="20240307 13:25:56.633" level="INFO">${delete_rows_query} = DELETE FROM invoicerow</msg>
+<status status="PASS" starttime="20240307 13:25:56.633" endtime="20240307 13:25:56.633"/>
 </kw>
 <kw name="Execute Sql String" library="DatabaseLibrary">
 <arg>${delete_rows_query}</arg>
 <doc>Executes the ``sqlString`` as a single SQL command.</doc>
-<msg timestamp="20240305 22:03:22.209" level="INFO">Executing : Execute SQL String  |  DELETE FROM invoicerow</msg>
-<status status="PASS" starttime="20240305 22:03:22.209" endtime="20240305 22:03:22.211"/>
+<msg timestamp="20240307 13:25:56.633" level="INFO">Executing : Execute SQL String  |  DELETE FROM invoicerow</msg>
+<status status="PASS" starttime="20240307 13:25:56.633" endtime="20240307 13:25:56.637"/>
 </kw>
 <kw name="Set Variable" library="BuiltIn">
 <var>${delete_headers_query}</var>
 <arg>DELETE FROM invoiceheader</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240305 22:03:22.211" level="INFO">${delete_headers_query} = DELETE FROM invoiceheader</msg>
-<status status="PASS" starttime="20240305 22:03:22.211" endtime="20240305 22:03:22.211"/>
+<msg timestamp="20240307 13:25:56.638" level="INFO">${delete_headers_query} = DELETE FROM invoiceheader</msg>
+<status status="PASS" starttime="20240307 13:25:56.637" endtime="20240307 13:25:56.638"/>
 </kw>
 <kw name="Execute Sql String" library="DatabaseLibrary">
 <arg>${delete_headers_query}</arg>
 <doc>Executes the ``sqlString`` as a single SQL command.</doc>
-<msg timestamp="20240305 22:03:22.211" level="INFO">Executing : Execute SQL String  |  DELETE FROM invoiceheader</msg>
-<status status="PASS" starttime="20240305 22:03:22.211" endtime="20240305 22:03:22.211"/>
+<msg timestamp="20240307 13:25:56.639" level="INFO">Executing : Execute SQL String  |  DELETE FROM invoiceheader</msg>
+<status status="PASS" starttime="20240307 13:25:56.638" endtime="20240307 13:25:56.643"/>
 </kw>
 <kw name="Close Connection">
 <kw name="Disconnect From Database" library="DatabaseLibrary">
 <doc>Disconnects from the database.</doc>
-<msg timestamp="20240305 22:03:22.213" level="INFO">Executing : Disconnect From Database</msg>
-<status status="PASS" starttime="20240305 22:03:22.213" endtime="20240305 22:03:22.213"/>
+<msg timestamp="20240307 13:25:56.644" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20240307 13:25:56.644" endtime="20240307 13:25:56.645"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.211" endtime="20240305 22:03:22.213"/>
+<status status="PASS" starttime="20240307 13:25:56.643" endtime="20240307 13:25:56.645"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.198" endtime="20240305 22:03:22.213"/>
+<status status="PASS" starttime="20240307 13:25:56.628" endtime="20240307 13:25:56.645"/>
 </kw>
 <doc>Tests if the database connection can be closed and the data cleaned effectively.</doc>
-<status status="PASS" starttime="20240305 22:03:22.141" endtime="20240305 22:03:22.213"/>
+<status status="PASS" starttime="20240307 13:25:56.555" endtime="20240307 13:25:56.645"/>
 </test>
-<test id="s1-t2" name="Process Invoice Data" line="106">
+<test id="s1-t2" name="Process Invoice Data" line="137">
 <kw name="Read CSV File">
 <var>${headerLines}</var>
 <arg>${header_csv}</arg>
@@ -82,21 +82,21 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <var>${file_path}</var>
 <arg>${filename}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20240305 22:03:22.215" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceHeaderData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceHeaderData.csv&lt;/a&gt;'.</msg>
-<msg timestamp="20240305 22:03:22.215" level="INFO">${file_path} = ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount
+<msg timestamp="20240307 13:25:56.649" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceHeaderData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceHeaderData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.650" level="INFO">${file_path} = ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount
 143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;FI12...</msg>
-<status status="PASS" starttime="20240305 22:03:22.215" endtime="20240305 22:03:22.215"/>
+<status status="PASS" starttime="20240307 13:25:56.649" endtime="20240307 13:25:56.650"/>
 </kw>
 <kw name="Split To Lines" library="String">
 <var>@{lines}</var>
 <arg>${file_path}</arg>
 <doc>Splits the given string to lines.</doc>
-<msg timestamp="20240305 22:03:22.219" level="INFO">4 lines returned</msg>
-<msg timestamp="20240305 22:03:22.219" level="INFO">@{lines} = [ ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount | 143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;...</msg>
-<status status="PASS" starttime="20240305 22:03:22.215" endtime="20240305 22:03:22.219"/>
+<msg timestamp="20240307 13:25:56.651" level="INFO">4 lines returned</msg>
+<msg timestamp="20240307 13:25:56.651" level="INFO">@{lines} = [ ﻿InvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount | 143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234567-8;...</msg>
+<status status="PASS" starttime="20240307 13:25:56.650" endtime="20240307 13:25:56.651"/>
 </kw>
-<msg timestamp="20240305 22:03:22.219" level="INFO">${headerLines} = ['\ufeffInvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount', '143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234...</msg>
-<status status="PASS" starttime="20240305 22:03:22.215" endtime="20240305 22:03:22.219"/>
+<msg timestamp="20240307 13:25:56.651" level="INFO">${headerLines} = ['\ufeffInvoiceNumber;CompanyName;ReferenceNumber;InvoiceDate;DueDate;CompanyCode;BankAccountNumber;AmountExclVAT;VATAmount;TotalAmount', '143143;Service Provider Oy;1431432;15.12.2022;07.04.2021;1234...</msg>
+<status status="PASS" starttime="20240307 13:25:56.648" endtime="20240307 13:25:56.651"/>
 </kw>
 <kw name="Read CSV File">
 <var>${rows}</var>
@@ -105,23 +105,23 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <var>${file_path}</var>
 <arg>${filename}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20240305 22:03:22.219" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceRowData.csv&lt;/a&gt;'.</msg>
-<msg timestamp="20240305 22:03:22.221" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+<msg timestamp="20240307 13:25:56.653" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.654" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
 Installation Services;5;h;60;24;72;372;143143;1
 Replacement Products;10;kpl;105;24;252;1302;143143;2
 Keyboard Logitech...</msg>
-<status status="PASS" starttime="20240305 22:03:22.219" endtime="20240305 22:03:22.221"/>
+<status status="PASS" starttime="20240307 13:25:56.652" endtime="20240307 13:25:56.654"/>
 </kw>
 <kw name="Split To Lines" library="String">
 <var>@{lines}</var>
 <arg>${file_path}</arg>
 <doc>Splits the given string to lines.</doc>
-<msg timestamp="20240305 22:03:22.223" level="INFO">9 lines returned</msg>
-<msg timestamp="20240305 22:03:22.223" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
-<status status="PASS" starttime="20240305 22:03:22.221" endtime="20240305 22:03:22.223"/>
+<msg timestamp="20240307 13:25:56.655" level="INFO">9 lines returned</msg>
+<msg timestamp="20240307 13:25:56.655" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.654" endtime="20240307 13:25:56.656"/>
 </kw>
-<msg timestamp="20240305 22:03:22.224" level="INFO">${rows} = ['\ufeffDescription;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber', 'Installation Services;5;h;60;24;72;372;143143;1', 'Replacement Products;10;kpl;105;24;252;1302;143143;2', 'K...</msg>
-<status status="PASS" starttime="20240305 22:03:22.219" endtime="20240305 22:03:22.224"/>
+<msg timestamp="20240307 13:25:56.656" level="INFO">${rows} = ['\ufeffDescription;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber', 'Installation Services;5;h;60;24;72;372;143143;1', 'Replacement Products;10;kpl;105;24;252;1302;143143;2', 'K...</msg>
+<status status="PASS" starttime="20240307 13:25:56.652" endtime="20240307 13:25:56.656"/>
 </kw>
 <for flavor="IN">
 <var>${header}</var>
@@ -135,8 +135,8 @@ Keyboard Logitech...</msg>
 <var>${totalAmount}</var>
 <arg>${0}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240305 22:03:22.227" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.226" endtime="20240305 22:03:22.227"/>
+<msg timestamp="20240307 13:25:56.659" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.658" endtime="20240307 13:25:56.659"/>
 </kw>
 <kw name="Read CSV File">
 <var>@{rows}</var>
@@ -145,23 +145,23 @@ Keyboard Logitech...</msg>
 <var>${file_path}</var>
 <arg>${filename}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20240305 22:03:22.227" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceRowData.csv&lt;/a&gt;'.</msg>
-<msg timestamp="20240305 22:03:22.227" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+<msg timestamp="20240307 13:25:56.660" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.660" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
 Installation Services;5;h;60;24;72;372;143143;1
 Replacement Products;10;kpl;105;24;252;1302;143143;2
 Keyboard Logitech...</msg>
-<status status="PASS" starttime="20240305 22:03:22.227" endtime="20240305 22:03:22.227"/>
+<status status="PASS" starttime="20240307 13:25:56.659" endtime="20240307 13:25:56.661"/>
 </kw>
 <kw name="Split To Lines" library="String">
 <var>@{lines}</var>
 <arg>${file_path}</arg>
 <doc>Splits the given string to lines.</doc>
-<msg timestamp="20240305 22:03:22.229" level="INFO">9 lines returned</msg>
-<msg timestamp="20240305 22:03:22.229" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
-<status status="PASS" starttime="20240305 22:03:22.229" endtime="20240305 22:03:22.229"/>
+<msg timestamp="20240307 13:25:56.661" level="INFO">9 lines returned</msg>
+<msg timestamp="20240307 13:25:56.661" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.661" endtime="20240307 13:25:56.661"/>
 </kw>
-<msg timestamp="20240305 22:03:22.230" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
-<status status="PASS" starttime="20240305 22:03:22.227" endtime="20240305 22:03:22.230"/>
+<msg timestamp="20240307 13:25:56.662" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.659" endtime="20240307 13:25:56.662"/>
 </kw>
 <for flavor="IN">
 <var>${row}</var>
@@ -173,8 +173,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.232" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.230" endtime="20240305 22:03:22.232"/>
+<msg timestamp="20240307 13:25:56.663" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.662" endtime="20240307 13:25:56.663"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -188,19 +188,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<status status="PASS" starttime="20240307 13:25:56.664" endtime="20240307 13:25:56.665"/>
 </kw>
-<msg timestamp="20240305 22:03:22.232" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<msg timestamp="20240307 13:25:56.665" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.663" endtime="20240307 13:25:56.665"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.232" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<msg timestamp="20240307 13:25:56.666" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.665" endtime="20240307 13:25:56.666"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.230" endtime="20240305 22:03:22.232"/>
+<status status="PASS" starttime="20240307 13:25:56.662" endtime="20240307 13:25:56.666"/>
 </iter>
 <iter>
 <var name="${row}">Replacement Products;10;kpl;105;24;252;1302;143143;2</var>
@@ -209,8 +209,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.232" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<msg timestamp="20240307 13:25:56.666" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.666" endtime="20240307 13:25:56.666"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -224,19 +224,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<status status="PASS" starttime="20240307 13:25:56.668" endtime="20240307 13:25:56.668"/>
 </kw>
-<msg timestamp="20240305 22:03:22.232" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<msg timestamp="20240307 13:25:56.669" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.666" endtime="20240307 13:25:56.669"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.232" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<msg timestamp="20240307 13:25:56.669" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.669" endtime="20240307 13:25:56.669"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<status status="PASS" starttime="20240307 13:25:56.666" endtime="20240307 13:25:56.669"/>
 </iter>
 <iter>
 <var name="${row}">Keyboard Logitech;10;kpl;40;24;96;496;1543235;1</var>
@@ -245,8 +245,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.232" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.232"/>
+<msg timestamp="20240307 13:25:56.669" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.669" endtime="20240307 13:25:56.669"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -260,19 +260,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.241" endtime="20240305 22:03:22.241"/>
+<status status="PASS" starttime="20240307 13:25:56.670" endtime="20240307 13:25:56.670"/>
 </kw>
-<msg timestamp="20240305 22:03:22.241" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.240" endtime="20240305 22:03:22.241"/>
+<msg timestamp="20240307 13:25:56.670" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.669" endtime="20240307 13:25:56.670"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.241" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.241" endtime="20240305 22:03:22.241"/>
+<msg timestamp="20240307 13:25:56.671" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.670" endtime="20240307 13:25:56.671"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.232" endtime="20240305 22:03:22.241"/>
+<status status="PASS" starttime="20240307 13:25:56.669" endtime="20240307 13:25:56.671"/>
 </iter>
 <iter>
 <var name="${row}">Brother printer;1;kpl;65;24;15.6;80.6;1543235;2</var>
@@ -281,8 +281,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.243" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.241" endtime="20240305 22:03:22.243"/>
+<msg timestamp="20240307 13:25:56.672" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.672" endtime="20240307 13:25:56.672"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -296,19 +296,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.244" endtime="20240305 22:03:22.244"/>
+<status status="PASS" starttime="20240307 13:25:56.673" endtime="20240307 13:25:56.673"/>
 </kw>
-<msg timestamp="20240305 22:03:22.244" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.243" endtime="20240305 22:03:22.244"/>
+<msg timestamp="20240307 13:25:56.673" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.672" endtime="20240307 13:25:56.673"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.245" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.245" endtime="20240305 22:03:22.245"/>
+<msg timestamp="20240307 13:25:56.673" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.673" endtime="20240307 13:25:56.673"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.241" endtime="20240305 22:03:22.245"/>
+<status status="PASS" starttime="20240307 13:25:56.672" endtime="20240307 13:25:56.674"/>
 </iter>
 <iter>
 <var name="${row}">Installation Services;5;h;60;24;72;372;153143;1</var>
@@ -317,8 +317,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.246" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.246" endtime="20240305 22:03:22.246"/>
+<msg timestamp="20240307 13:25:56.674" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.674" endtime="20240307 13:25:56.674"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -332,19 +332,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.247" endtime="20240305 22:03:22.248"/>
+<status status="PASS" starttime="20240307 13:25:56.676" endtime="20240307 13:25:56.676"/>
 </kw>
-<msg timestamp="20240305 22:03:22.248" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.246" endtime="20240305 22:03:22.248"/>
+<msg timestamp="20240307 13:25:56.676" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.674" endtime="20240307 13:25:56.676"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.249" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.248" endtime="20240305 22:03:22.249"/>
+<msg timestamp="20240307 13:25:56.676" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.676" endtime="20240307 13:25:56.676"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.245" endtime="20240305 22:03:22.249"/>
+<status status="PASS" starttime="20240307 13:25:56.674" endtime="20240307 13:25:56.676"/>
 </iter>
 <iter>
 <var name="${row}">Replacement Products;10;kpl;105;24;252;1302;153143;2</var>
@@ -353,8 +353,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.249" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.249" endtime="20240305 22:03:22.250"/>
+<msg timestamp="20240307 13:25:56.677" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.676" endtime="20240307 13:25:56.677"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -368,19 +368,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.250" endtime="20240305 22:03:22.250"/>
+<status status="PASS" starttime="20240307 13:25:56.678" endtime="20240307 13:25:56.678"/>
 </kw>
-<msg timestamp="20240305 22:03:22.250" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.250" endtime="20240305 22:03:22.252"/>
+<msg timestamp="20240307 13:25:56.678" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.677" endtime="20240307 13:25:56.678"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.252" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.252"/>
+<msg timestamp="20240307 13:25:56.679" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.679" endtime="20240307 13:25:56.679"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.249" endtime="20240305 22:03:22.252"/>
+<status status="PASS" starttime="20240307 13:25:56.676" endtime="20240307 13:25:56.679"/>
 </iter>
 <iter>
 <var name="${row}">Cleaning Services;5;h;60;24;72;372;153143;3</var>
@@ -389,8 +389,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.252" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.252"/>
+<msg timestamp="20240307 13:25:56.679" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.679" endtime="20240307 13:25:56.680"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -404,19 +404,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.252"/>
+<status status="PASS" starttime="20240307 13:25:56.680" endtime="20240307 13:25:56.681"/>
 </kw>
-<msg timestamp="20240305 22:03:22.252" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.252"/>
+<msg timestamp="20240307 13:25:56.681" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.680" endtime="20240307 13:25:56.681"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.252" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.252"/>
+<msg timestamp="20240307 13:25:56.681" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.681" endtime="20240307 13:25:56.681"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.252"/>
+<status status="PASS" starttime="20240307 13:25:56.679" endtime="20240307 13:25:56.681"/>
 </iter>
 <iter>
 <var name="${row}">Cleaning Wipes;10;kpl;105;24;252;1302;153143;4</var>
@@ -425,8 +425,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.252" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.252"/>
+<msg timestamp="20240307 13:25:56.681" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.681" endtime="20240307 13:25:56.681"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -440,24 +440,24 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.257" endtime="20240305 22:03:22.257"/>
+<status status="PASS" starttime="20240307 13:25:56.682" endtime="20240307 13:25:56.682"/>
 </kw>
-<msg timestamp="20240305 22:03:22.257" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.257" endtime="20240305 22:03:22.257"/>
+<msg timestamp="20240307 13:25:56.682" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.681" endtime="20240307 13:25:56.682"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.257" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.257" endtime="20240305 22:03:22.257"/>
+<msg timestamp="20240307 13:25:56.683" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.682" endtime="20240307 13:25:56.683"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.252" endtime="20240305 22:03:22.257"/>
+<status status="PASS" starttime="20240307 13:25:56.681" endtime="20240307 13:25:56.683"/>
 </iter>
-<status status="PASS" starttime="20240305 22:03:22.230" endtime="20240305 22:03:22.257"/>
+<status status="PASS" starttime="20240307 13:25:56.662" endtime="20240307 13:25:56.683"/>
 </for>
-<msg timestamp="20240305 22:03:22.259" level="INFO">${calculatedTotal} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.224" endtime="20240305 22:03:22.259"/>
+<msg timestamp="20240307 13:25:56.683" level="INFO">${calculatedTotal} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.657" endtime="20240307 13:25:56.683"/>
 </kw>
 <kw name="Insert Invoice Header To DB">
 <arg>${header}</arg>
@@ -472,18 +472,24 @@ Keyboard Logitech...</msg>
 <arg>${dbport}</arg>
 <doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
 connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
-<msg timestamp="20240305 22:03:22.261" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
-<status status="PASS" starttime="20240305 22:03:22.260" endtime="20240305 22:03:22.264"/>
+<msg timestamp="20240307 13:25:56.685" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
+<status status="PASS" starttime="20240307 13:25:56.684" endtime="20240307 13:25:56.688"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.260" endtime="20240305 22:03:22.264"/>
+<status status="PASS" starttime="20240307 13:25:56.684" endtime="20240307 13:25:56.688"/>
 </kw>
 <kw name="Split String" library="String">
 <var>@{headerDetails}</var>
 <arg>${header}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.264" level="INFO">@{headerDetails} = [ 143143 | Service Provider Oy | 1431432 | 15.12.2022 | 07.04.2021 | 1234567-8 | FI12 3456 7890 1234 56 | 1350 | 324 | 1674 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.264" endtime="20240305 22:03:22.264"/>
+<msg timestamp="20240307 13:25:56.689" level="INFO">@{headerDetails} = [ 143143 | Service Provider Oy | 1431432 | 15.12.2022 | 07.04.2021 | 1234567-8 | FI12 3456 7890 1234 56 | 1350 | 324 | 1674 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.689" endtime="20240307 13:25:56.689"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${headerDetails}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240307 13:25:56.689" level="INFO">['143143', 'Service Provider Oy', '1431432', '15.12.2022', '07.04.2021', '1234567-8', 'FI12 3456 7890 1234 56', '1350', '324', '1674']</msg>
+<status status="PASS" starttime="20240307 13:25:56.689" endtime="20240307 13:25:56.690"/>
 </kw>
 <kw name="Is Reference Number Correct">
 <var>${refResult}</var>
@@ -492,11 +498,11 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <var>${correct}</var>
 <arg>len("${refNumber}") == 7 and "${refNumber}".isdigit()</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.265" level="INFO">${correct} = True</msg>
-<status status="PASS" starttime="20240305 22:03:22.265" endtime="20240305 22:03:22.266"/>
+<msg timestamp="20240307 13:25:56.691" level="INFO">${correct} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.690" endtime="20240307 13:25:56.691"/>
 </kw>
-<msg timestamp="20240305 22:03:22.266" level="INFO">${refResult} = True</msg>
-<status status="PASS" starttime="20240305 22:03:22.265" endtime="20240305 22:03:22.266"/>
+<msg timestamp="20240307 13:25:56.691" level="INFO">${refResult} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.690" endtime="20240307 13:25:56.691"/>
 </kw>
 <kw name="Check IBAN">
 <var>${ibanResult}</var>
@@ -505,11 +511,11 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <var>${correct}</var>
 <arg>"${iban}"[:2].isalpha() and "${iban}"[:2].isupper() and len("${iban}") == 22</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.267" level="INFO">${correct} = True</msg>
-<status status="PASS" starttime="20240305 22:03:22.266" endtime="20240305 22:03:22.267"/>
+<msg timestamp="20240307 13:25:56.692" level="INFO">${correct} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.692" endtime="20240307 13:25:56.692"/>
 </kw>
-<msg timestamp="20240305 22:03:22.267" level="INFO">${ibanResult} = True</msg>
-<status status="PASS" starttime="20240305 22:03:22.266" endtime="20240305 22:03:22.267"/>
+<msg timestamp="20240307 13:25:56.692" level="INFO">${ibanResult} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.691" endtime="20240307 13:25:56.692"/>
 </kw>
 <kw name="Is Total Amount Valid">
 <var>${amountValid}</var>
@@ -522,8 +528,8 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <var>${totalAmount}</var>
 <arg>${0}</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<msg timestamp="20240305 22:03:22.269" level="INFO">${totalAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.268" endtime="20240305 22:03:22.269"/>
+<msg timestamp="20240307 13:25:56.693" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.693" endtime="20240307 13:25:56.694"/>
 </kw>
 <kw name="Read CSV File">
 <var>@{rows}</var>
@@ -532,23 +538,23 @@ connect to the database using provided parameters such as ``dbName``, ``dbUserna
 <var>${file_path}</var>
 <arg>${filename}</arg>
 <doc>Returns the contents of a specified file.</doc>
-<msg timestamp="20240305 22:03:22.269" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Invoice-Automation\Robot Validation\InvoiceRowData.csv&lt;/a&gt;'.</msg>
-<msg timestamp="20240305 22:03:22.271" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+<msg timestamp="20240307 13:25:56.694" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.695" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
 Installation Services;5;h;60;24;72;372;143143;1
 Replacement Products;10;kpl;105;24;252;1302;143143;2
 Keyboard Logitech...</msg>
-<status status="PASS" starttime="20240305 22:03:22.269" endtime="20240305 22:03:22.271"/>
+<status status="PASS" starttime="20240307 13:25:56.694" endtime="20240307 13:25:56.695"/>
 </kw>
 <kw name="Split To Lines" library="String">
 <var>@{lines}</var>
 <arg>${file_path}</arg>
 <doc>Splits the given string to lines.</doc>
-<msg timestamp="20240305 22:03:22.271" level="INFO">9 lines returned</msg>
-<msg timestamp="20240305 22:03:22.271" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
-<status status="PASS" starttime="20240305 22:03:22.271" endtime="20240305 22:03:22.271"/>
+<msg timestamp="20240307 13:25:56.695" level="INFO">9 lines returned</msg>
+<msg timestamp="20240307 13:25:56.695" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.695" endtime="20240307 13:25:56.695"/>
 </kw>
-<msg timestamp="20240305 22:03:22.272" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
-<status status="PASS" starttime="20240305 22:03:22.269" endtime="20240305 22:03:22.272"/>
+<msg timestamp="20240307 13:25:56.695" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.694" endtime="20240307 13:25:56.695"/>
 </kw>
 <for flavor="IN">
 <var>${row}</var>
@@ -560,8 +566,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.272" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.272" endtime="20240305 22:03:22.272"/>
+<msg timestamp="20240307 13:25:56.696" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.696" endtime="20240307 13:25:56.696"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -575,19 +581,19 @@ Keyboard Logitech...</msg>
 <kw name="Convert To Number" library="BuiltIn">
 <arg>${rowDetails[6]}</arg>
 <doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" starttime="20240305 22:03:22.273" endtime="20240305 22:03:22.274"/>
+<status status="PASS" starttime="20240307 13:25:56.696" endtime="20240307 13:25:56.696"/>
 </kw>
-<msg timestamp="20240305 22:03:22.274" level="INFO">${rowAmount} = 372.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.273" endtime="20240305 22:03:22.274"/>
+<msg timestamp="20240307 13:25:56.696" level="INFO">${rowAmount} = 372.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.696" endtime="20240307 13:25:56.696"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.274" level="INFO">${totalAmount} = 372.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.274" endtime="20240305 22:03:22.274"/>
+<msg timestamp="20240307 13:25:56.698" level="INFO">${totalAmount} = 372.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.696" endtime="20240307 13:25:56.698"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.272" endtime="20240305 22:03:22.275"/>
+<status status="PASS" starttime="20240307 13:25:56.696" endtime="20240307 13:25:56.698"/>
 </iter>
 <iter>
 <var name="${row}">Replacement Products;10;kpl;105;24;252;1302;143143;2</var>
@@ -596,8 +602,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.275" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.275" endtime="20240305 22:03:22.275"/>
+<msg timestamp="20240307 13:25:56.698" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.698" endtime="20240307 13:25:56.698"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -611,19 +617,19 @@ Keyboard Logitech...</msg>
 <kw name="Convert To Number" library="BuiltIn">
 <arg>${rowDetails[6]}</arg>
 <doc>Converts the given item to a floating point number.</doc>
-<status status="PASS" starttime="20240305 22:03:22.275" endtime="20240305 22:03:22.277"/>
+<status status="PASS" starttime="20240307 13:25:56.699" endtime="20240307 13:25:56.699"/>
 </kw>
-<msg timestamp="20240305 22:03:22.277" level="INFO">${rowAmount} = 1302.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.275" endtime="20240305 22:03:22.277"/>
+<msg timestamp="20240307 13:25:56.699" level="INFO">${rowAmount} = 1302.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.698" endtime="20240307 13:25:56.699"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.278" level="INFO">${totalAmount} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.277" endtime="20240305 22:03:22.278"/>
+<msg timestamp="20240307 13:25:56.700" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.700" endtime="20240307 13:25:56.700"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.275" endtime="20240305 22:03:22.278"/>
+<status status="PASS" starttime="20240307 13:25:56.698" endtime="20240307 13:25:56.700"/>
 </iter>
 <iter>
 <var name="${row}">Keyboard Logitech;10;kpl;40;24;96;496;1543235;1</var>
@@ -632,8 +638,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.278" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.278" endtime="20240305 22:03:22.278"/>
+<msg timestamp="20240307 13:25:56.700" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.700" endtime="20240307 13:25:56.701"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -647,19 +653,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.279" endtime="20240305 22:03:22.279"/>
+<status status="PASS" starttime="20240307 13:25:56.701" endtime="20240307 13:25:56.701"/>
 </kw>
-<msg timestamp="20240305 22:03:22.279" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.278" endtime="20240305 22:03:22.279"/>
+<msg timestamp="20240307 13:25:56.701" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.701" endtime="20240307 13:25:56.701"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.280" level="INFO">${totalAmount} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.279" endtime="20240305 22:03:22.280"/>
+<msg timestamp="20240307 13:25:56.702" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.702" endtime="20240307 13:25:56.702"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.278" endtime="20240305 22:03:22.280"/>
+<status status="PASS" starttime="20240307 13:25:56.700" endtime="20240307 13:25:56.702"/>
 </iter>
 <iter>
 <var name="${row}">Brother printer;1;kpl;65;24;15.6;80.6;1543235;2</var>
@@ -668,8 +674,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.280" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.280" endtime="20240305 22:03:22.280"/>
+<msg timestamp="20240307 13:25:56.702" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.702" endtime="20240307 13:25:56.702"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -683,19 +689,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.281" endtime="20240305 22:03:22.281"/>
+<status status="PASS" starttime="20240307 13:25:56.703" endtime="20240307 13:25:56.703"/>
 </kw>
-<msg timestamp="20240305 22:03:22.281" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.280" endtime="20240305 22:03:22.282"/>
+<msg timestamp="20240307 13:25:56.703" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.703" endtime="20240307 13:25:56.703"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.282" level="INFO">${totalAmount} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.282" endtime="20240305 22:03:22.282"/>
+<msg timestamp="20240307 13:25:56.703" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.703" endtime="20240307 13:25:56.704"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.280" endtime="20240305 22:03:22.282"/>
+<status status="PASS" starttime="20240307 13:25:56.702" endtime="20240307 13:25:56.704"/>
 </iter>
 <iter>
 <var name="${row}">Installation Services;5;h;60;24;72;372;153143;1</var>
@@ -704,8 +710,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.282" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.282" endtime="20240305 22:03:22.283"/>
+<msg timestamp="20240307 13:25:56.706" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.704" endtime="20240307 13:25:56.706"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -719,19 +725,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.283" endtime="20240305 22:03:22.283"/>
+<status status="PASS" starttime="20240307 13:25:56.706" endtime="20240307 13:25:56.706"/>
 </kw>
-<msg timestamp="20240305 22:03:22.283" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.283" endtime="20240305 22:03:22.283"/>
+<msg timestamp="20240307 13:25:56.706" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.706" endtime="20240307 13:25:56.706"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.284" level="INFO">${totalAmount} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.283" endtime="20240305 22:03:22.284"/>
+<msg timestamp="20240307 13:25:56.707" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.706" endtime="20240307 13:25:56.707"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.282" endtime="20240305 22:03:22.284"/>
+<status status="PASS" starttime="20240307 13:25:56.704" endtime="20240307 13:25:56.707"/>
 </iter>
 <iter>
 <var name="${row}">Replacement Products;10;kpl;105;24;252;1302;153143;2</var>
@@ -740,8 +746,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.284" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.284" endtime="20240305 22:03:22.284"/>
+<msg timestamp="20240307 13:25:56.707" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.707" endtime="20240307 13:25:56.707"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -755,19 +761,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.285" endtime="20240305 22:03:22.285"/>
+<status status="PASS" starttime="20240307 13:25:56.708" endtime="20240307 13:25:56.708"/>
 </kw>
-<msg timestamp="20240305 22:03:22.285" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.284" endtime="20240305 22:03:22.285"/>
+<msg timestamp="20240307 13:25:56.708" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.707" endtime="20240307 13:25:56.708"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.285" level="INFO">${totalAmount} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.285" endtime="20240305 22:03:22.285"/>
+<msg timestamp="20240307 13:25:56.709" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.708" endtime="20240307 13:25:56.709"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.284" endtime="20240305 22:03:22.285"/>
+<status status="PASS" starttime="20240307 13:25:56.707" endtime="20240307 13:25:56.709"/>
 </iter>
 <iter>
 <var name="${row}">Cleaning Services;5;h;60;24;72;372;153143;3</var>
@@ -776,8 +782,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.286" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.286" endtime="20240305 22:03:22.286"/>
+<msg timestamp="20240307 13:25:56.709" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.709" endtime="20240307 13:25:56.709"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -791,19 +797,19 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.287" endtime="20240305 22:03:22.287"/>
+<status status="PASS" starttime="20240307 13:25:56.710" endtime="20240307 13:25:56.710"/>
 </kw>
-<msg timestamp="20240305 22:03:22.287" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.286" endtime="20240305 22:03:22.287"/>
+<msg timestamp="20240307 13:25:56.710" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.709" endtime="20240307 13:25:56.710"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.288" level="INFO">${totalAmount} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.287" endtime="20240305 22:03:22.288"/>
+<msg timestamp="20240307 13:25:56.711" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.710" endtime="20240307 13:25:56.711"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.286" endtime="20240305 22:03:22.288"/>
+<status status="PASS" starttime="20240307 13:25:56.709" endtime="20240307 13:25:56.711"/>
 </iter>
 <iter>
 <var name="${row}">Cleaning Wipes;10;kpl;105;24;252;1302;153143;4</var>
@@ -812,8 +818,8 @@ Keyboard Logitech...</msg>
 <arg>${row}</arg>
 <arg>;</arg>
 <doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
-<msg timestamp="20240305 22:03:22.288" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
-<status status="PASS" starttime="20240305 22:03:22.288" endtime="20240305 22:03:22.288"/>
+<msg timestamp="20240307 13:25:56.711" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.711" endtime="20240307 13:25:56.711"/>
 </kw>
 <kw name="Run Keyword If" library="BuiltIn">
 <var>${rowAmount}</var>
@@ -827,145 +833,2252 @@ Keyboard Logitech...</msg>
 <kw name="Set Variable" library="BuiltIn">
 <arg>0</arg>
 <doc>Returns the given values which can then be assigned to a variables.</doc>
-<status status="PASS" starttime="20240305 22:03:22.288" endtime="20240305 22:03:22.288"/>
+<status status="PASS" starttime="20240307 13:25:56.712" endtime="20240307 13:25:56.712"/>
 </kw>
-<msg timestamp="20240305 22:03:22.288" level="INFO">${rowAmount} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.288" endtime="20240305 22:03:22.288"/>
+<msg timestamp="20240307 13:25:56.712" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.711" endtime="20240307 13:25:56.712"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${totalAmount}</var>
 <arg>${totalAmount} + ${rowAmount}</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${totalAmount} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.288" endtime="20240305 22:03:22.290"/>
+<msg timestamp="20240307 13:25:56.712" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.712" endtime="20240307 13:25:56.712"/>
 </kw>
-<status status="PASS" starttime="20240305 22:03:22.288" endtime="20240305 22:03:22.290"/>
+<status status="PASS" starttime="20240307 13:25:56.711" endtime="20240307 13:25:56.712"/>
 </iter>
-<status status="PASS" starttime="20240305 22:03:22.272" endtime="20240305 22:03:22.290"/>
+<status status="PASS" starttime="20240307 13:25:56.696" endtime="20240307 13:25:56.713"/>
 </for>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${calculatedTotal} = 1674.0</msg>
-<status status="PASS" starttime="20240305 22:03:22.268" endtime="20240305 22:03:22.290"/>
+<msg timestamp="20240307 13:25:56.713" level="INFO">${calculatedTotal} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.693" endtime="20240307 13:25:56.713"/>
 </kw>
 <kw name="Evaluate" library="BuiltIn">
 <var>${isValid}</var>
-<arg>${calculatedTotal} == ${headerTotal}</arg>
+<arg>float(${calculatedTotal}) == float(${headerTotal})</arg>
 <doc>Evaluates the given expression in Python and returns the result.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${isValid} = True</msg>
-<status status="PASS" starttime="20240305 22:03:22.290" endtime="20240305 22:03:22.290"/>
+<msg timestamp="20240307 13:25:56.713" level="INFO">${isValid} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.713" endtime="20240307 13:25:56.713"/>
 </kw>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${amountValid} = True</msg>
-<status status="PASS" starttime="20240305 22:03:22.267" endtime="20240305 22:03:22.290"/>
+<msg timestamp="20240307 13:25:56.713" level="INFO">${amountValid} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.692" endtime="20240307 13:25:56.713"/>
 </kw>
-<kw name="Set Variable If" library="BuiltIn">
+<kw name="Set Variable" library="BuiltIn">
 <var>${statusOfInvoice}</var>
-<arg>not ${refResult}</arg>
-<arg>1</arg>
 <arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.714" level="INFO">${statusOfInvoice} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.713" endtime="20240307 13:25:56.714"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.714" level="INFO">${errorCount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.714" endtime="20240307 13:25:56.714"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>All ok</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.714" level="INFO">${comment} = All ok</msg>
+<status status="PASS" starttime="20240307 13:25:56.714" endtime="20240307 13:25:56.714"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${refResult}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.715" endtime="20240307 13:25:56.715"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>Reference number error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.715" endtime="20240307 13:25:56.715"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.715" endtime="20240307 13:25:56.715"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.714" endtime="20240307 13:25:56.715"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.714" endtime="20240307 13:25:56.715"/>
+</if>
+<if>
+<branch type="IF" condition="not ${ibanResult}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.715" endtime="20240307 13:25:56.715"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${comment}</var>
+<arg>${errorCount} &gt; 1</arg>
+<arg>${comment} + and IBAN number error</arg>
+<arg>IBAN number error</arg>
 <doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${statusOfInvoice} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.290" endtime="20240305 22:03:22.290"/>
+<status status="NOT RUN" starttime="20240307 13:25:56.715" endtime="20240307 13:25:56.716"/>
 </kw>
 <kw name="Set Variable If" library="BuiltIn">
 <var>${statusOfInvoice}</var>
-<arg>not ${ibanResult}</arg>
+<arg>${errorCount} == 1</arg>
 <arg>2</arg>
 <arg>${statusOfInvoice}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${statusOfInvoice} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.290" endtime="20240305 22:03:22.290"/>
+<status status="NOT RUN" starttime="20240307 13:25:56.716" endtime="20240307 13:25:56.716"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.715" endtime="20240307 13:25:56.716"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.715" endtime="20240307 13:25:56.716"/>
+</if>
+<if>
+<branch type="IF" condition="not ${amountValid}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.716" endtime="20240307 13:25:56.716"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${comment}</var>
+<arg>${errorCount} &gt; 1</arg>
+<arg>${comment} + and Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
+<arg>Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.717" endtime="20240307 13:25:56.717"/>
 </kw>
 <kw name="Set Variable If" library="BuiltIn">
 <var>${statusOfInvoice}</var>
-<arg>not ${amountValid}</arg>
+<arg>${errorCount} == 1</arg>
 <arg>3</arg>
 <arg>${statusOfInvoice}</arg>
 <doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${statusOfInvoice} = 0</msg>
-<status status="PASS" starttime="20240305 22:03:22.290" endtime="20240305 22:03:22.290"/>
+<status status="NOT RUN" starttime="20240307 13:25:56.717" endtime="20240307 13:25:56.717"/>
 </kw>
-<kw name="Set Variable If" library="BuiltIn">
+<status status="NOT RUN" starttime="20240307 13:25:56.716" endtime="20240307 13:25:56.717"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.716" endtime="20240307 13:25:56.717"/>
+</if>
+<if>
+<branch type="IF" condition="${errorCount} &gt; 1">
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.717" endtime="20240307 13:25:56.717"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
 <var>${comment}</var>
-<arg>${statusOfInvoice}==0</arg>
+<arg>Multiple errors: ${comment}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.717" endtime="20240307 13:25:56.718"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.717" endtime="20240307 13:25:56.718"/>
+</branch>
+<branch type="ELSE IF" condition="${errorCount} == 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.718" level="INFO">${statusOfInvoice} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.718" endtime="20240307 13:25:56.718"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
 <arg>All ok</arg>
-<doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${comment} = All ok</msg>
-<status status="PASS" starttime="20240305 22:03:22.290" endtime="20240305 22:03:22.290"/>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.718" level="INFO">${comment} = All ok</msg>
+<status status="PASS" starttime="20240307 13:25:56.718" endtime="20240307 13:25:56.718"/>
 </kw>
-<kw name="Set Variable If" library="BuiltIn">
-<var>${comment}</var>
-<arg>${statusOfInvoice}==1</arg>
-<arg>Reference number error</arg>
-<arg>${comment}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${comment} = All ok</msg>
-<status status="PASS" starttime="20240305 22:03:22.290" endtime="20240305 22:03:22.290"/>
-</kw>
-<kw name="Set Variable If" library="BuiltIn">
-<var>${comment}</var>
-<arg>${statusOfInvoice}==2</arg>
-<arg>+ IBAN number error</arg>
-<arg>${comment}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20240305 22:03:22.290" level="INFO">${comment} = All ok</msg>
-<status status="PASS" starttime="20240305 22:03:22.290" endtime="20240305 22:03:22.290"/>
-</kw>
-<kw name="Set Variable If" library="BuiltIn">
-<var>${comment}</var>
-<arg>${statusOfInvoice}==3</arg>
-<arg>+ Total amount mismatch:</arg>
-<arg>Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
-<arg>${comment}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<kw name="Set Variable If" library="BuiltIn">
-<arg>Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
-<arg>${comment}</arg>
-<doc>Sets variable based on the given condition.</doc>
-<msg timestamp="20240305 22:03:22.293" level="FAIL">Evaluating expression 'Expected=1674, Calculated=0' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</msg>
-<status status="FAIL" starttime="20240305 22:03:22.293" endtime="20240305 22:03:22.294"/>
-</kw>
-<status status="FAIL" starttime="20240305 22:03:22.293" endtime="20240305 22:03:22.295"/>
-</kw>
+<status status="PASS" starttime="20240307 13:25:56.718" endtime="20240307 13:25:56.718"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.717" endtime="20240307 13:25:56.719"/>
+</if>
 <kw name="Catenate" library="BuiltIn">
 <var>${query}</var>
 <arg>SEPARATOR=</arg>
 <arg>INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('${headerDetails[0]}', '${headerDetails[1]}', '${headerDetails[2]}', '${headerDetails[3]}', '${headerDetails[4]}', '${headerDetails[5]}', '${headerDetails[6]}', ${headerDetails[7]}, ${headerDetails[8]}, ${headerDetails[9]}, '${comment}', '${statusOfInvoice}')</arg>
 <doc>Catenates the given items together and returns the resulted string.</doc>
-<status status="NOT RUN" starttime="20240305 22:03:22.295" endtime="20240305 22:03:22.295"/>
+<msg timestamp="20240307 13:25:56.721" level="INFO">${query} = INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('14314...</msg>
+<status status="PASS" starttime="20240307 13:25:56.719" endtime="20240307 13:25:56.722"/>
 </kw>
 <kw name="Execute Sql String" library="DatabaseLibrary">
 <arg>${query}</arg>
 <doc>Executes the ``sqlString`` as a single SQL command.</doc>
-<status status="NOT RUN" starttime="20240305 22:03:22.295" endtime="20240305 22:03:22.295"/>
+<msg timestamp="20240307 13:25:56.722" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('143143', 'Service Provider Oy', '1431432', '15.12.2022', '07.04.2021', '1234567-8', 'FI12 3456 7890 1234 56', 1350, 324, 1674, 'All ok', '0')</msg>
+<status status="PASS" starttime="20240307 13:25:56.722" endtime="20240307 13:25:56.726"/>
 </kw>
 <kw name="Close Connection">
-<status status="NOT RUN" starttime="20240305 22:03:22.295" endtime="20240305 22:03:22.295"/>
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20240307 13:25:56.727" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20240307 13:25:56.727" endtime="20240307 13:25:56.727"/>
 </kw>
-<status status="FAIL" starttime="20240305 22:03:22.259" endtime="20240305 22:03:22.295"/>
+<status status="PASS" starttime="20240307 13:25:56.726" endtime="20240307 13:25:56.727"/>
 </kw>
-<status status="FAIL" starttime="20240305 22:03:22.224" endtime="20240305 22:03:22.295"/>
+<status status="PASS" starttime="20240307 13:25:56.684" endtime="20240307 13:25:56.727"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.657" endtime="20240307 13:25:56.727"/>
 </iter>
-<status status="FAIL" starttime="20240305 22:03:22.224" endtime="20240305 22:03:22.295"/>
+<iter>
+<var name="${header}">1543235;Component Oy;15432359;01.10.2022;15.10.2022;1234567-9;FI05 1234 5600 7891 01;465;111.6;576.6</var>
+<kw name="Calculate Total Amount From Rows">
+<var>${calculatedTotal}</var>
+<arg>${header[0]}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.729" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.728" endtime="20240307 13:25:56.729"/>
+</kw>
+<kw name="Read CSV File">
+<var>@{rows}</var>
+<arg>${row_csv}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_path}</var>
+<arg>${filename}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20240307 13:25:56.729" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.730" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;143143;1
+Replacement Products;10;kpl;105;24;252;1302;143143;2
+Keyboard Logitech...</msg>
+<status status="PASS" starttime="20240307 13:25:56.729" endtime="20240307 13:25:56.730"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{lines}</var>
+<arg>${file_path}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20240307 13:25:56.731" level="INFO">9 lines returned</msg>
+<msg timestamp="20240307 13:25:56.731" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.730" endtime="20240307 13:25:56.731"/>
+</kw>
+<msg timestamp="20240307 13:25:56.731" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.729" endtime="20240307 13:25:56.731"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{rows}[1:]</value>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;143143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.732" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.731" endtime="20240307 13:25:56.732"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.732" endtime="20240307 13:25:56.732"/>
+</kw>
+<msg timestamp="20240307 13:25:56.733" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.732" endtime="20240307 13:25:56.733"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.733" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.733" endtime="20240307 13:25:56.733"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.731" endtime="20240307 13:25:56.733"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;143143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.734" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.734" endtime="20240307 13:25:56.734"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.734" endtime="20240307 13:25:56.734"/>
+</kw>
+<msg timestamp="20240307 13:25:56.734" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.734" endtime="20240307 13:25:56.735"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.735" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.735" endtime="20240307 13:25:56.735"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.733" endtime="20240307 13:25:56.735"/>
+</iter>
+<iter>
+<var name="${row}">Keyboard Logitech;10;kpl;40;24;96;496;1543235;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.736" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.735" endtime="20240307 13:25:56.736"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.737" endtime="20240307 13:25:56.737"/>
+</kw>
+<msg timestamp="20240307 13:25:56.737" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.736" endtime="20240307 13:25:56.737"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.738" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.737" endtime="20240307 13:25:56.738"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.735" endtime="20240307 13:25:56.738"/>
+</iter>
+<iter>
+<var name="${row}">Brother printer;1;kpl;65;24;15.6;80.6;1543235;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.738" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.738" endtime="20240307 13:25:56.740"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.741" endtime="20240307 13:25:56.741"/>
+</kw>
+<msg timestamp="20240307 13:25:56.741" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.740" endtime="20240307 13:25:56.741"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.741" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.741" endtime="20240307 13:25:56.741"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.738" endtime="20240307 13:25:56.741"/>
+</iter>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;153143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.742" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.742" endtime="20240307 13:25:56.742"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.743" endtime="20240307 13:25:56.743"/>
+</kw>
+<msg timestamp="20240307 13:25:56.743" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.742" endtime="20240307 13:25:56.743"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.743" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.743" endtime="20240307 13:25:56.744"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.742" endtime="20240307 13:25:56.744"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;153143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.744" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.744" endtime="20240307 13:25:56.744"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.745" endtime="20240307 13:25:56.745"/>
+</kw>
+<msg timestamp="20240307 13:25:56.745" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.745" endtime="20240307 13:25:56.745"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.746" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.746" endtime="20240307 13:25:56.746"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.744" endtime="20240307 13:25:56.746"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Services;5;h;60;24;72;372;153143;3</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.747" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.746" endtime="20240307 13:25:56.747"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.747" endtime="20240307 13:25:56.747"/>
+</kw>
+<msg timestamp="20240307 13:25:56.748" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.747" endtime="20240307 13:25:56.748"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.748" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.748" endtime="20240307 13:25:56.748"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.746" endtime="20240307 13:25:56.748"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Wipes;10;kpl;105;24;252;1302;153143;4</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.748" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.748" endtime="20240307 13:25:56.749"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.749" endtime="20240307 13:25:56.749"/>
+</kw>
+<msg timestamp="20240307 13:25:56.749" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.749" endtime="20240307 13:25:56.749"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.750" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.750" endtime="20240307 13:25:56.750"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.748" endtime="20240307 13:25:56.750"/>
+</iter>
+<status status="PASS" starttime="20240307 13:25:56.731" endtime="20240307 13:25:56.750"/>
+</for>
+<msg timestamp="20240307 13:25:56.750" level="INFO">${calculatedTotal} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.728" endtime="20240307 13:25:56.750"/>
+</kw>
+<kw name="Insert Invoice Header To DB">
+<arg>${header}</arg>
+<arg>${calculatedTotal}</arg>
+<kw name="Make Connection">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>pymysql</arg>
+<arg>${dbname}</arg>
+<arg>${dbuser}</arg>
+<arg>${dbpass}</arg>
+<arg>${dbhost}</arg>
+<arg>${dbport}</arg>
+<doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
+connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
+<msg timestamp="20240307 13:25:56.752" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
+<status status="PASS" starttime="20240307 13:25:56.751" endtime="20240307 13:25:56.754"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.751" endtime="20240307 13:25:56.754"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{headerDetails}</var>
+<arg>${header}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.755" level="INFO">@{headerDetails} = [ 1543235 | Component Oy | 15432359 | 01.10.2022 | 15.10.2022 | 1234567-9 | FI05 1234 5600 7891 01 | 465 | 111.6 | 576.6 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.755" endtime="20240307 13:25:56.755"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${headerDetails}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240307 13:25:56.756" level="INFO">['1543235', 'Component Oy', '15432359', '01.10.2022', '15.10.2022', '1234567-9', 'FI05 1234 5600 7891 01', '465', '111.6', '576.6']</msg>
+<status status="PASS" starttime="20240307 13:25:56.756" endtime="20240307 13:25:56.756"/>
+</kw>
+<kw name="Is Reference Number Correct">
+<var>${refResult}</var>
+<arg>${headerDetails[2]}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${correct}</var>
+<arg>len("${refNumber}") == 7 and "${refNumber}".isdigit()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.758" level="INFO">${correct} = False</msg>
+<status status="PASS" starttime="20240307 13:25:56.757" endtime="20240307 13:25:56.758"/>
+</kw>
+<msg timestamp="20240307 13:25:56.758" level="INFO">${refResult} = False</msg>
+<status status="PASS" starttime="20240307 13:25:56.757" endtime="20240307 13:25:56.758"/>
+</kw>
+<kw name="Check IBAN">
+<var>${ibanResult}</var>
+<arg>${headerDetails[6]}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${correct}</var>
+<arg>"${iban}"[:2].isalpha() and "${iban}"[:2].isupper() and len("${iban}") == 22</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.760" level="INFO">${correct} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.759" endtime="20240307 13:25:56.760"/>
+</kw>
+<msg timestamp="20240307 13:25:56.760" level="INFO">${ibanResult} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.759" endtime="20240307 13:25:56.760"/>
+</kw>
+<kw name="Is Total Amount Valid">
+<var>${amountValid}</var>
+<arg>${headerDetails[0]}</arg>
+<arg>${headerDetails[9]}</arg>
+<kw name="Calculate Total Amount From Rows">
+<var>${calculatedTotal}</var>
+<arg>${invoiceNumber}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.762" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.761" endtime="20240307 13:25:56.762"/>
+</kw>
+<kw name="Read CSV File">
+<var>@{rows}</var>
+<arg>${row_csv}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_path}</var>
+<arg>${filename}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20240307 13:25:56.763" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.763" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;143143;1
+Replacement Products;10;kpl;105;24;252;1302;143143;2
+Keyboard Logitech...</msg>
+<status status="PASS" starttime="20240307 13:25:56.763" endtime="20240307 13:25:56.764"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{lines}</var>
+<arg>${file_path}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20240307 13:25:56.764" level="INFO">9 lines returned</msg>
+<msg timestamp="20240307 13:25:56.764" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.764" endtime="20240307 13:25:56.764"/>
+</kw>
+<msg timestamp="20240307 13:25:56.765" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.762" endtime="20240307 13:25:56.765"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{rows}[1:]</value>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;143143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.766" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.766" endtime="20240307 13:25:56.766"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.767" endtime="20240307 13:25:56.767"/>
+</kw>
+<msg timestamp="20240307 13:25:56.767" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.766" endtime="20240307 13:25:56.767"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.768" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.768" endtime="20240307 13:25:56.768"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.766" endtime="20240307 13:25:56.768"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;143143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.768" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.768" endtime="20240307 13:25:56.770"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.771" endtime="20240307 13:25:56.772"/>
+</kw>
+<msg timestamp="20240307 13:25:56.772" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.770" endtime="20240307 13:25:56.772"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.772" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.772" endtime="20240307 13:25:56.772"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.768" endtime="20240307 13:25:56.772"/>
+</iter>
+<iter>
+<var name="${row}">Keyboard Logitech;10;kpl;40;24;96;496;1543235;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.773" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.773" endtime="20240307 13:25:56.773"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Convert To Number" library="BuiltIn">
+<arg>${rowDetails[6]}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" starttime="20240307 13:25:56.774" endtime="20240307 13:25:56.775"/>
+</kw>
+<msg timestamp="20240307 13:25:56.775" level="INFO">${rowAmount} = 496.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.773" endtime="20240307 13:25:56.775"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.775" level="INFO">${totalAmount} = 496.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.775" endtime="20240307 13:25:56.775"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.773" endtime="20240307 13:25:56.776"/>
+</iter>
+<iter>
+<var name="${row}">Brother printer;1;kpl;65;24;15.6;80.6;1543235;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.776" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.776" endtime="20240307 13:25:56.776"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Convert To Number" library="BuiltIn">
+<arg>${rowDetails[6]}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" starttime="20240307 13:25:56.777" endtime="20240307 13:25:56.777"/>
+</kw>
+<msg timestamp="20240307 13:25:56.778" level="INFO">${rowAmount} = 80.6</msg>
+<status status="PASS" starttime="20240307 13:25:56.776" endtime="20240307 13:25:56.778"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.778" level="INFO">${totalAmount} = 576.6</msg>
+<status status="PASS" starttime="20240307 13:25:56.778" endtime="20240307 13:25:56.778"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.776" endtime="20240307 13:25:56.778"/>
+</iter>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;153143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.779" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.779" endtime="20240307 13:25:56.779"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.779" endtime="20240307 13:25:56.780"/>
+</kw>
+<msg timestamp="20240307 13:25:56.780" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.779" endtime="20240307 13:25:56.780"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.780" level="INFO">${totalAmount} = 576.6</msg>
+<status status="PASS" starttime="20240307 13:25:56.780" endtime="20240307 13:25:56.780"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.778" endtime="20240307 13:25:56.780"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;153143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.781" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.780" endtime="20240307 13:25:56.781"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.781" endtime="20240307 13:25:56.781"/>
+</kw>
+<msg timestamp="20240307 13:25:56.781" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.781" endtime="20240307 13:25:56.782"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.782" level="INFO">${totalAmount} = 576.6</msg>
+<status status="PASS" starttime="20240307 13:25:56.782" endtime="20240307 13:25:56.782"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.780" endtime="20240307 13:25:56.782"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Services;5;h;60;24;72;372;153143;3</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.782" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.782" endtime="20240307 13:25:56.782"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.782" endtime="20240307 13:25:56.784"/>
+</kw>
+<msg timestamp="20240307 13:25:56.784" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.782" endtime="20240307 13:25:56.784"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.785" level="INFO">${totalAmount} = 576.6</msg>
+<status status="PASS" starttime="20240307 13:25:56.784" endtime="20240307 13:25:56.785"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.782" endtime="20240307 13:25:56.785"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Wipes;10;kpl;105;24;252;1302;153143;4</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.785" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.785" endtime="20240307 13:25:56.785"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.786" endtime="20240307 13:25:56.786"/>
+</kw>
+<msg timestamp="20240307 13:25:56.786" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.786" endtime="20240307 13:25:56.786"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.786" level="INFO">${totalAmount} = 576.6</msg>
+<status status="PASS" starttime="20240307 13:25:56.786" endtime="20240307 13:25:56.787"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.785" endtime="20240307 13:25:56.787"/>
+</iter>
+<status status="PASS" starttime="20240307 13:25:56.765" endtime="20240307 13:25:56.787"/>
+</for>
+<msg timestamp="20240307 13:25:56.787" level="INFO">${calculatedTotal} = 576.6</msg>
+<status status="PASS" starttime="20240307 13:25:56.761" endtime="20240307 13:25:56.787"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${isValid}</var>
+<arg>float(${calculatedTotal}) == float(${headerTotal})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.788" level="INFO">${isValid} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.787" endtime="20240307 13:25:56.788"/>
+</kw>
+<msg timestamp="20240307 13:25:56.788" level="INFO">${amountValid} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.760" endtime="20240307 13:25:56.788"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.788" level="INFO">${statusOfInvoice} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.788" endtime="20240307 13:25:56.788"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.790" level="INFO">${errorCount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.788" endtime="20240307 13:25:56.790"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>All ok</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.790" level="INFO">${comment} = All ok</msg>
+<status status="PASS" starttime="20240307 13:25:56.790" endtime="20240307 13:25:56.790"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${refResult}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.790" level="INFO">${errorCount} = 1</msg>
+<status status="PASS" starttime="20240307 13:25:56.790" endtime="20240307 13:25:56.790"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>Reference number error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.791" level="INFO">${comment} = Reference number error</msg>
+<status status="PASS" starttime="20240307 13:25:56.791" endtime="20240307 13:25:56.791"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.791" level="INFO">${statusOfInvoice} = 1</msg>
+<status status="PASS" starttime="20240307 13:25:56.791" endtime="20240307 13:25:56.791"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.790" endtime="20240307 13:25:56.791"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.790" endtime="20240307 13:25:56.791"/>
+</if>
+<if>
+<branch type="IF" condition="not ${ibanResult}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.791" endtime="20240307 13:25:56.791"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${comment}</var>
+<arg>${errorCount} &gt; 1</arg>
+<arg>${comment} + and IBAN number error</arg>
+<arg>IBAN number error</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.792" endtime="20240307 13:25:56.792"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>${errorCount} == 1</arg>
+<arg>2</arg>
+<arg>${statusOfInvoice}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.792" endtime="20240307 13:25:56.792"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.791" endtime="20240307 13:25:56.792"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.791" endtime="20240307 13:25:56.792"/>
+</if>
+<if>
+<branch type="IF" condition="not ${amountValid}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.792" endtime="20240307 13:25:56.792"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${comment}</var>
+<arg>${errorCount} &gt; 1</arg>
+<arg>${comment} + and Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
+<arg>Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.792" endtime="20240307 13:25:56.792"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>${errorCount} == 1</arg>
+<arg>3</arg>
+<arg>${statusOfInvoice}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.792" endtime="20240307 13:25:56.793"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.792" endtime="20240307 13:25:56.793"/>
+</if>
+<if>
+<branch type="IF" condition="${errorCount} &gt; 1">
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>Multiple errors: ${comment}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</branch>
+<branch type="ELSE IF" condition="${errorCount} == 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>All ok</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.793" endtime="20240307 13:25:56.793"/>
+</if>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('${headerDetails[0]}', '${headerDetails[1]}', '${headerDetails[2]}', '${headerDetails[3]}', '${headerDetails[4]}', '${headerDetails[5]}', '${headerDetails[6]}', ${headerDetails[7]}, ${headerDetails[8]}, ${headerDetails[9]}, '${comment}', '${statusOfInvoice}')</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.797" level="INFO">${query} = INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('15432...</msg>
+<status status="PASS" starttime="20240307 13:25:56.795" endtime="20240307 13:25:56.797"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.797" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('1543235', 'Component Oy', '15432359', '01.10.2022', '15.10.2022', '1234567-9', 'FI05 1234 5600 7891 01', 465, 111.6, 576.6, 'Reference number error', '1')</msg>
+<status status="PASS" starttime="20240307 13:25:56.797" endtime="20240307 13:25:56.804"/>
+</kw>
+<kw name="Close Connection">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20240307 13:25:56.805" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20240307 13:25:56.805" endtime="20240307 13:25:56.805"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.804" endtime="20240307 13:25:56.805"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.750" endtime="20240307 13:25:56.805"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.728" endtime="20240307 13:25:56.805"/>
+</iter>
+<iter>
+<var name="${header}">153143;Service Provider Oy;1531439;15.12.2022;01.04.2021;1234567-8;FI12 3456 7890 1234 56;2700;648;3348</var>
+<kw name="Calculate Total Amount From Rows">
+<var>${calculatedTotal}</var>
+<arg>${header[0]}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.807" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.807" endtime="20240307 13:25:56.807"/>
+</kw>
+<kw name="Read CSV File">
+<var>@{rows}</var>
+<arg>${row_csv}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_path}</var>
+<arg>${filename}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20240307 13:25:56.808" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.808" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;143143;1
+Replacement Products;10;kpl;105;24;252;1302;143143;2
+Keyboard Logitech...</msg>
+<status status="PASS" starttime="20240307 13:25:56.808" endtime="20240307 13:25:56.808"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{lines}</var>
+<arg>${file_path}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20240307 13:25:56.809" level="INFO">9 lines returned</msg>
+<msg timestamp="20240307 13:25:56.809" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.808" endtime="20240307 13:25:56.809"/>
+</kw>
+<msg timestamp="20240307 13:25:56.809" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.807" endtime="20240307 13:25:56.809"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{rows}[1:]</value>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;143143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.809" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.809" endtime="20240307 13:25:56.809"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.811" endtime="20240307 13:25:56.811"/>
+</kw>
+<msg timestamp="20240307 13:25:56.811" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.811" endtime="20240307 13:25:56.811"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.811" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.811" endtime="20240307 13:25:56.811"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.809" endtime="20240307 13:25:56.811"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;143143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.812" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.812" endtime="20240307 13:25:56.812"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.813" endtime="20240307 13:25:56.813"/>
+</kw>
+<msg timestamp="20240307 13:25:56.813" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.812" endtime="20240307 13:25:56.813"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.813" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.813" endtime="20240307 13:25:56.813"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.812" endtime="20240307 13:25:56.814"/>
+</iter>
+<iter>
+<var name="${row}">Keyboard Logitech;10;kpl;40;24;96;496;1543235;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.814" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.814" endtime="20240307 13:25:56.814"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.815" endtime="20240307 13:25:56.815"/>
+</kw>
+<msg timestamp="20240307 13:25:56.815" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.814" endtime="20240307 13:25:56.815"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.816" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.815" endtime="20240307 13:25:56.816"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.814" endtime="20240307 13:25:56.816"/>
+</iter>
+<iter>
+<var name="${row}">Brother printer;1;kpl;65;24;15.6;80.6;1543235;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.816" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.816" endtime="20240307 13:25:56.816"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.817" endtime="20240307 13:25:56.817"/>
+</kw>
+<msg timestamp="20240307 13:25:56.817" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.817" endtime="20240307 13:25:56.817"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.818" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.817" endtime="20240307 13:25:56.818"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.816" endtime="20240307 13:25:56.818"/>
+</iter>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;153143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.818" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.818" endtime="20240307 13:25:56.818"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.819" endtime="20240307 13:25:56.819"/>
+</kw>
+<msg timestamp="20240307 13:25:56.819" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.818" endtime="20240307 13:25:56.819"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.819" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.819" endtime="20240307 13:25:56.820"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.818" endtime="20240307 13:25:56.820"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;153143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.820" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.820" endtime="20240307 13:25:56.820"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.821" endtime="20240307 13:25:56.821"/>
+</kw>
+<msg timestamp="20240307 13:25:56.821" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.820" endtime="20240307 13:25:56.821"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.821" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.821" endtime="20240307 13:25:56.823"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.820" endtime="20240307 13:25:56.823"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Services;5;h;60;24;72;372;153143;3</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.823" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.823" endtime="20240307 13:25:56.823"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.823" endtime="20240307 13:25:56.824"/>
+</kw>
+<msg timestamp="20240307 13:25:56.824" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.823" endtime="20240307 13:25:56.824"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.824" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.824" endtime="20240307 13:25:56.824"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.823" endtime="20240307 13:25:56.824"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Wipes;10;kpl;105;24;252;1302;153143;4</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.824" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.824" endtime="20240307 13:25:56.824"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.826" endtime="20240307 13:25:56.826"/>
+</kw>
+<msg timestamp="20240307 13:25:56.826" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.824" endtime="20240307 13:25:56.826"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.826" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.826" endtime="20240307 13:25:56.826"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.824" endtime="20240307 13:25:56.826"/>
+</iter>
+<status status="PASS" starttime="20240307 13:25:56.809" endtime="20240307 13:25:56.826"/>
+</for>
+<msg timestamp="20240307 13:25:56.827" level="INFO">${calculatedTotal} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.806" endtime="20240307 13:25:56.827"/>
+</kw>
+<kw name="Insert Invoice Header To DB">
+<arg>${header}</arg>
+<arg>${calculatedTotal}</arg>
+<kw name="Make Connection">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>pymysql</arg>
+<arg>${dbname}</arg>
+<arg>${dbuser}</arg>
+<arg>${dbpass}</arg>
+<arg>${dbhost}</arg>
+<arg>${dbport}</arg>
+<doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
+connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
+<msg timestamp="20240307 13:25:56.829" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
+<status status="PASS" starttime="20240307 13:25:56.827" endtime="20240307 13:25:56.831"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.827" endtime="20240307 13:25:56.831"/>
+</kw>
+<kw name="Split String" library="String">
+<var>@{headerDetails}</var>
+<arg>${header}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.831" level="INFO">@{headerDetails} = [ 153143 | Service Provider Oy | 1531439 | 15.12.2022 | 01.04.2021 | 1234567-8 | FI12 3456 7890 1234 56 | 2700 | 648 | 3348 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.831" endtime="20240307 13:25:56.831"/>
+</kw>
+<kw name="Log" library="BuiltIn">
+<arg>${headerDetails}</arg>
+<doc>Logs the given message with the given level.</doc>
+<msg timestamp="20240307 13:25:56.832" level="INFO">['153143', 'Service Provider Oy', '1531439', '15.12.2022', '01.04.2021', '1234567-8', 'FI12 3456 7890 1234 56', '2700', '648', '3348']</msg>
+<status status="PASS" starttime="20240307 13:25:56.831" endtime="20240307 13:25:56.832"/>
+</kw>
+<kw name="Is Reference Number Correct">
+<var>${refResult}</var>
+<arg>${headerDetails[2]}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${correct}</var>
+<arg>len("${refNumber}") == 7 and "${refNumber}".isdigit()</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.833" level="INFO">${correct} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.832" endtime="20240307 13:25:56.833"/>
+</kw>
+<msg timestamp="20240307 13:25:56.833" level="INFO">${refResult} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.832" endtime="20240307 13:25:56.833"/>
+</kw>
+<kw name="Check IBAN">
+<var>${ibanResult}</var>
+<arg>${headerDetails[6]}</arg>
+<kw name="Evaluate" library="BuiltIn">
+<var>${correct}</var>
+<arg>"${iban}"[:2].isalpha() and "${iban}"[:2].isupper() and len("${iban}") == 22</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.833" level="INFO">${correct} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.833" endtime="20240307 13:25:56.833"/>
+</kw>
+<msg timestamp="20240307 13:25:56.835" level="INFO">${ibanResult} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.833" endtime="20240307 13:25:56.835"/>
+</kw>
+<kw name="Is Total Amount Valid">
+<var>${amountValid}</var>
+<arg>${headerDetails[0]}</arg>
+<arg>${headerDetails[9]}</arg>
+<kw name="Calculate Total Amount From Rows">
+<var>${calculatedTotal}</var>
+<arg>${invoiceNumber}</arg>
+<kw name="Set Variable" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${0}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.836" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.836" endtime="20240307 13:25:56.836"/>
+</kw>
+<kw name="Read CSV File">
+<var>@{rows}</var>
+<arg>${row_csv}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_path}</var>
+<arg>${filename}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20240307 13:25:56.836" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv"&gt;C:\Users\ELSAMA\OneDrive\Desktop\Robot Validation - Copy\InvoiceRowData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240307 13:25:56.837" level="INFO">${file_path} = ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber
+Installation Services;5;h;60;24;72;372;143143;1
+Replacement Products;10;kpl;105;24;252;1302;143143;2
+Keyboard Logitech...</msg>
+<status status="PASS" starttime="20240307 13:25:56.836" endtime="20240307 13:25:56.837"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{lines}</var>
+<arg>${file_path}</arg>
+<doc>Splits the given string to lines.</doc>
+<msg timestamp="20240307 13:25:56.838" level="INFO">9 lines returned</msg>
+<msg timestamp="20240307 13:25:56.838" level="INFO">@{lines} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.837" endtime="20240307 13:25:56.838"/>
+</kw>
+<msg timestamp="20240307 13:25:56.838" level="INFO">@{rows} = [ ﻿Description;Quantity;Unit;UnitPrice;VATPercent;VAT;Total;InvoiceNumber;RowNumber | Installation Services;5;h;60;24;72;372;143143;1 | Replacement Products;10;kpl;105;24;252;1302;143143;2 | Keyboard ...</msg>
+<status status="PASS" starttime="20240307 13:25:56.836" endtime="20240307 13:25:56.838"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{rows}[1:]</value>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;143143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.839" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.839" endtime="20240307 13:25:56.839"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.840" endtime="20240307 13:25:56.840"/>
+</kw>
+<msg timestamp="20240307 13:25:56.840" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.839" endtime="20240307 13:25:56.841"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.841" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.841" endtime="20240307 13:25:56.841"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.839" endtime="20240307 13:25:56.841"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;143143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.841" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.841" endtime="20240307 13:25:56.842"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.843" endtime="20240307 13:25:56.843"/>
+</kw>
+<msg timestamp="20240307 13:25:56.843" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.842" endtime="20240307 13:25:56.843"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.843" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.843" endtime="20240307 13:25:56.843"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.841" endtime="20240307 13:25:56.843"/>
+</iter>
+<iter>
+<var name="${row}">Keyboard Logitech;10;kpl;40;24;96;496;1543235;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.843" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.843" endtime="20240307 13:25:56.843"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.844" endtime="20240307 13:25:56.844"/>
+</kw>
+<msg timestamp="20240307 13:25:56.844" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.844" endtime="20240307 13:25:56.844"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.844" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.844" endtime="20240307 13:25:56.844"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.843" endtime="20240307 13:25:56.844"/>
+</iter>
+<iter>
+<var name="${row}">Brother printer;1;kpl;65;24;15.6;80.6;1543235;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.846" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.846" endtime="20240307 13:25:56.846"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Set Variable" library="BuiltIn">
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="PASS" starttime="20240307 13:25:56.846" endtime="20240307 13:25:56.847"/>
+</kw>
+<msg timestamp="20240307 13:25:56.847" level="INFO">${rowAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.846" endtime="20240307 13:25:56.847"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.847" level="INFO">${totalAmount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.847" endtime="20240307 13:25:56.847"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.844" endtime="20240307 13:25:56.847"/>
+</iter>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;153143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.848" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.847" endtime="20240307 13:25:56.848"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Convert To Number" library="BuiltIn">
+<arg>${rowDetails[6]}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" starttime="20240307 13:25:56.849" endtime="20240307 13:25:56.849"/>
+</kw>
+<msg timestamp="20240307 13:25:56.849" level="INFO">${rowAmount} = 372.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.848" endtime="20240307 13:25:56.849"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.850" level="INFO">${totalAmount} = 372.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.849" endtime="20240307 13:25:56.850"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.847" endtime="20240307 13:25:56.850"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;153143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.850" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.850" endtime="20240307 13:25:56.850"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Convert To Number" library="BuiltIn">
+<arg>${rowDetails[6]}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" starttime="20240307 13:25:56.851" endtime="20240307 13:25:56.851"/>
+</kw>
+<msg timestamp="20240307 13:25:56.851" level="INFO">${rowAmount} = 1302.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.850" endtime="20240307 13:25:56.852"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.852" level="INFO">${totalAmount} = 1674.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.852" endtime="20240307 13:25:56.852"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.850" endtime="20240307 13:25:56.852"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Services;5;h;60;24;72;372;153143;3</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.853" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.852" endtime="20240307 13:25:56.853"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Convert To Number" library="BuiltIn">
+<arg>${rowDetails[6]}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" starttime="20240307 13:25:56.854" endtime="20240307 13:25:56.855"/>
+</kw>
+<msg timestamp="20240307 13:25:56.855" level="INFO">${rowAmount} = 372.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.853" endtime="20240307 13:25:56.855"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.856" level="INFO">${totalAmount} = 2046.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.855" endtime="20240307 13:25:56.856"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.852" endtime="20240307 13:25:56.856"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Wipes;10;kpl;105;24;252;1302;153143;4</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.857" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.856" endtime="20240307 13:25:56.857"/>
+</kw>
+<kw name="Run Keyword If" library="BuiltIn">
+<var>${rowAmount}</var>
+<arg>'${rowDetails[7]}' == '${invoiceNumber}'</arg>
+<arg>Convert To Number</arg>
+<arg>${rowDetails[6]}</arg>
+<arg>ELSE</arg>
+<arg>Set Variable</arg>
+<arg>0</arg>
+<doc>Runs the given keyword with the given arguments, if ``condition`` is true.</doc>
+<kw name="Convert To Number" library="BuiltIn">
+<arg>${rowDetails[6]}</arg>
+<doc>Converts the given item to a floating point number.</doc>
+<status status="PASS" starttime="20240307 13:25:56.858" endtime="20240307 13:25:56.859"/>
+</kw>
+<msg timestamp="20240307 13:25:56.859" level="INFO">${rowAmount} = 1302.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.857" endtime="20240307 13:25:56.859"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${totalAmount}</var>
+<arg>${totalAmount} + ${rowAmount}</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.860" level="INFO">${totalAmount} = 3348.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.860" endtime="20240307 13:25:56.860"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.856" endtime="20240307 13:25:56.860"/>
+</iter>
+<status status="PASS" starttime="20240307 13:25:56.838" endtime="20240307 13:25:56.860"/>
+</for>
+<msg timestamp="20240307 13:25:56.861" level="INFO">${calculatedTotal} = 3348.0</msg>
+<status status="PASS" starttime="20240307 13:25:56.835" endtime="20240307 13:25:56.861"/>
+</kw>
+<kw name="Evaluate" library="BuiltIn">
+<var>${isValid}</var>
+<arg>float(${calculatedTotal}) == float(${headerTotal})</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20240307 13:25:56.861" level="INFO">${isValid} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.861" endtime="20240307 13:25:56.862"/>
+</kw>
+<msg timestamp="20240307 13:25:56.862" level="INFO">${amountValid} = True</msg>
+<status status="PASS" starttime="20240307 13:25:56.835" endtime="20240307 13:25:56.862"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.862" level="INFO">${statusOfInvoice} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.862" endtime="20240307 13:25:56.862"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.863" level="INFO">${errorCount} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.863" endtime="20240307 13:25:56.863"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>All ok</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.863" level="INFO">${comment} = All ok</msg>
+<status status="PASS" starttime="20240307 13:25:56.863" endtime="20240307 13:25:56.863"/>
+</kw>
+<if>
+<branch type="IF" condition="not ${refResult}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.864" endtime="20240307 13:25:56.864"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>Reference number error</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.864" endtime="20240307 13:25:56.864"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>1</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.865" endtime="20240307 13:25:56.865"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.864" endtime="20240307 13:25:56.865"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.864" endtime="20240307 13:25:56.865"/>
+</if>
+<if>
+<branch type="IF" condition="not ${ibanResult}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.865" endtime="20240307 13:25:56.865"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${comment}</var>
+<arg>${errorCount} &gt; 1</arg>
+<arg>${comment} + and IBAN number error</arg>
+<arg>IBAN number error</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.865" endtime="20240307 13:25:56.865"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>${errorCount} == 1</arg>
+<arg>2</arg>
+<arg>${statusOfInvoice}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.867" endtime="20240307 13:25:56.867"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.865" endtime="20240307 13:25:56.867"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.865" endtime="20240307 13:25:56.867"/>
+</if>
+<if>
+<branch type="IF" condition="not ${amountValid}">
+<kw name="Evaluate" library="BuiltIn">
+<var>${errorCount}</var>
+<arg>${errorCount} + 1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.867" endtime="20240307 13:25:56.867"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${comment}</var>
+<arg>${errorCount} &gt; 1</arg>
+<arg>${comment} + and Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
+<arg>Total amount mismatch: Expected=${headerDetails[9]}, Calculated=${calculatedTotal}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.867" endtime="20240307 13:25:56.867"/>
+</kw>
+<kw name="Set Variable If" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>${errorCount} == 1</arg>
+<arg>3</arg>
+<arg>${statusOfInvoice}</arg>
+<doc>Sets variable based on the given condition.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.868" endtime="20240307 13:25:56.868"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.867" endtime="20240307 13:25:56.868"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.867" endtime="20240307 13:25:56.868"/>
+</if>
+<if>
+<branch type="IF" condition="${errorCount} &gt; 1">
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>4</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.869" endtime="20240307 13:25:56.869"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>Multiple errors: ${comment}</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<status status="NOT RUN" starttime="20240307 13:25:56.869" endtime="20240307 13:25:56.869"/>
+</kw>
+<status status="NOT RUN" starttime="20240307 13:25:56.868" endtime="20240307 13:25:56.869"/>
+</branch>
+<branch type="ELSE IF" condition="${errorCount} == 0">
+<kw name="Set Variable" library="BuiltIn">
+<var>${statusOfInvoice}</var>
+<arg>0</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.870" level="INFO">${statusOfInvoice} = 0</msg>
+<status status="PASS" starttime="20240307 13:25:56.870" endtime="20240307 13:25:56.871"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${comment}</var>
+<arg>All ok</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240307 13:25:56.872" level="INFO">${comment} = All ok</msg>
+<status status="PASS" starttime="20240307 13:25:56.871" endtime="20240307 13:25:56.872"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.870" endtime="20240307 13:25:56.872"/>
+</branch>
+<status status="PASS" starttime="20240307 13:25:56.868" endtime="20240307 13:25:56.872"/>
+</if>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('${headerDetails[0]}', '${headerDetails[1]}', '${headerDetails[2]}', '${headerDetails[3]}', '${headerDetails[4]}', '${headerDetails[5]}', '${headerDetails[6]}', ${headerDetails[7]}, ${headerDetails[8]}, ${headerDetails[9]}, '${comment}', '${statusOfInvoice}')</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.876" level="INFO">${query} = INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('15314...</msg>
+<status status="PASS" starttime="20240307 13:25:56.872" endtime="20240307 13:25:56.876"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.877" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoiceheader (invoicenumber, companyname, referencenumber, invoicedate, duedate, companycode, bankaccountnumber, amountexclvat, vat, totalamount, comment, InvoiceStatus_id) VALUES ('153143', 'Service Provider Oy', '1531439', '15.12.2022', '01.04.2021', '1234567-8', 'FI12 3456 7890 1234 56', 2700, 648, 3348, 'All ok', '0')</msg>
+<status status="PASS" starttime="20240307 13:25:56.877" endtime="20240307 13:25:56.883"/>
+</kw>
+<kw name="Close Connection">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20240307 13:25:56.884" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20240307 13:25:56.883" endtime="20240307 13:25:56.884"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.883" endtime="20240307 13:25:56.884"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.827" endtime="20240307 13:25:56.884"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.805" endtime="20240307 13:25:56.884"/>
+</iter>
+<status status="PASS" starttime="20240307 13:25:56.656" endtime="20240307 13:25:56.884"/>
 </for>
 <kw name="Insert Invoice Rows To DB">
 <arg>@{rows[1:]}</arg>
-<status status="NOT RUN" starttime="20240305 22:03:22.297" endtime="20240305 22:03:22.297"/>
+<kw name="Make Connection">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>pymysql</arg>
+<arg>${dbname}</arg>
+<arg>${dbuser}</arg>
+<arg>${dbpass}</arg>
+<arg>${dbhost}</arg>
+<arg>${dbport}</arg>
+<doc>Loads the DB API 2.0 module given ``dbapiModuleName`` then uses it to
+connect to the database using provided parameters such as ``dbName``, ``dbUsername``, and ``dbPassword``.</doc>
+<msg timestamp="20240307 13:25:56.886" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=***, host=localhost, port=3306, charset=None)</msg>
+<status status="PASS" starttime="20240307 13:25:56.885" endtime="20240307 13:25:56.899"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.885" endtime="20240307 13:25:56.899"/>
+</kw>
+<for flavor="IN">
+<var>${row}</var>
+<value>@{rows}</value>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;143143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.900" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 143143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.900" endtime="20240307 13:25:56.900"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.903" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('143143', '1', 'Installation Services', 5, 'h', 60, 24, 72, 372)</msg>
+<status status="PASS" starttime="20240307 13:25:56.901" endtime="20240307 13:25:56.904"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.905" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('143143', '1', 'Installation Services', 5, 'h', 60, 24, 72, 372)</msg>
+<status status="PASS" starttime="20240307 13:25:56.904" endtime="20240307 13:25:56.909"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.900" endtime="20240307 13:25:56.909"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;143143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.909" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 143143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.909" endtime="20240307 13:25:56.909"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.912" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('143143', '2', 'Replacement Products', 10, 'kpl', 105, 24, 252, 1302)</msg>
+<status status="PASS" starttime="20240307 13:25:56.910" endtime="20240307 13:25:56.912"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.912" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('143143', '2', 'Replacement Products', 10, 'kpl', 105, 24, 252, 1302)</msg>
+<status status="PASS" starttime="20240307 13:25:56.912" endtime="20240307 13:25:56.916"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.909" endtime="20240307 13:25:56.916"/>
+</iter>
+<iter>
+<var name="${row}">Keyboard Logitech;10;kpl;40;24;96;496;1543235;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.916" level="INFO">@{rowDetails} = [ Keyboard Logitech | 10 | kpl | 40 | 24 | 96 | 496 | 1543235 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.916" endtime="20240307 13:25:56.917"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.918" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('1543235', '1', 'Keyboard Logitech', 10, 'kpl', 40, 24, 96, 496)</msg>
+<status status="PASS" starttime="20240307 13:25:56.917" endtime="20240307 13:25:56.919"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.919" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('1543235', '1', 'Keyboard Logitech', 10, 'kpl', 40, 24, 96, 496)</msg>
+<status status="PASS" starttime="20240307 13:25:56.919" endtime="20240307 13:25:56.923"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.916" endtime="20240307 13:25:56.924"/>
+</iter>
+<iter>
+<var name="${row}">Brother printer;1;kpl;65;24;15.6;80.6;1543235;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.924" level="INFO">@{rowDetails} = [ Brother printer | 1 | kpl | 65 | 24 | 15.6 | 80.6 | 1543235 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.924" endtime="20240307 13:25:56.924"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.927" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('1543235', '2', 'Brother printer', 1, 'kpl', 65, 24, 15.6, 80.6)</msg>
+<status status="PASS" starttime="20240307 13:25:56.925" endtime="20240307 13:25:56.927"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.927" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('1543235', '2', 'Brother printer', 1, 'kpl', 65, 24, 15.6, 80.6)</msg>
+<status status="PASS" starttime="20240307 13:25:56.927" endtime="20240307 13:25:56.930"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.924" endtime="20240307 13:25:56.930"/>
+</iter>
+<iter>
+<var name="${row}">Installation Services;5;h;60;24;72;372;153143;1</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.932" level="INFO">@{rowDetails} = [ Installation Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 1 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.930" endtime="20240307 13:25:56.932"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.934" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '1', 'Installation Services', 5, 'h', 60, 24, 72, 372)</msg>
+<status status="PASS" starttime="20240307 13:25:56.932" endtime="20240307 13:25:56.934"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.934" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '1', 'Installation Services', 5, 'h', 60, 24, 72, 372)</msg>
+<status status="PASS" starttime="20240307 13:25:56.934" endtime="20240307 13:25:56.937"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.930" endtime="20240307 13:25:56.937"/>
+</iter>
+<iter>
+<var name="${row}">Replacement Products;10;kpl;105;24;252;1302;153143;2</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.938" level="INFO">@{rowDetails} = [ Replacement Products | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 2 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.938" endtime="20240307 13:25:56.938"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.940" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '2', 'Replacement Products', 10, 'kpl', 105, 24, 252, 1302)</msg>
+<status status="PASS" starttime="20240307 13:25:56.938" endtime="20240307 13:25:56.940"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.942" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '2', 'Replacement Products', 10, 'kpl', 105, 24, 252, 1302)</msg>
+<status status="PASS" starttime="20240307 13:25:56.942" endtime="20240307 13:25:56.945"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.937" endtime="20240307 13:25:56.945"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Services;5;h;60;24;72;372;153143;3</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.946" level="INFO">@{rowDetails} = [ Cleaning Services | 5 | h | 60 | 24 | 72 | 372 | 153143 | 3 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.946" endtime="20240307 13:25:56.947"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.950" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '3', 'Cleaning Services', 5, 'h', 60, 24, 72, 372)</msg>
+<status status="PASS" starttime="20240307 13:25:56.947" endtime="20240307 13:25:56.950"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.950" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '3', 'Cleaning Services', 5, 'h', 60, 24, 72, 372)</msg>
+<status status="PASS" starttime="20240307 13:25:56.950" endtime="20240307 13:25:56.953"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.946" endtime="20240307 13:25:56.953"/>
+</iter>
+<iter>
+<var name="${row}">Cleaning Wipes;10;kpl;105;24;252;1302;153143;4</var>
+<kw name="Split String" library="String">
+<var>@{rowDetails}</var>
+<arg>${row}</arg>
+<arg>;</arg>
+<doc>Splits the ``string`` using ``separator`` as a delimiter string.</doc>
+<msg timestamp="20240307 13:25:56.954" level="INFO">@{rowDetails} = [ Cleaning Wipes | 10 | kpl | 105 | 24 | 252 | 1302 | 153143 | 4 ]</msg>
+<status status="PASS" starttime="20240307 13:25:56.954" endtime="20240307 13:25:56.954"/>
+</kw>
+<kw name="Catenate" library="BuiltIn">
+<var>${query}</var>
+<arg>SEPARATOR=</arg>
+<arg>INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('${rowDetails[7]}', '${rowDetails[8]}', '${rowDetails[0]}', ${rowDetails[1]}, '${rowDetails[2]}', ${rowDetails[3]}, ${rowDetails[4]}, ${rowDetails[5]}, ${rowDetails[6]})</arg>
+<doc>Catenates the given items together and returns the resulted string.</doc>
+<msg timestamp="20240307 13:25:56.956" level="INFO">${query} = INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '4', 'Cleaning Wipes', 10, 'kpl', 105, 24, 252, 1302)</msg>
+<status status="PASS" starttime="20240307 13:25:56.954" endtime="20240307 13:25:56.958"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${query}</arg>
+<doc>Executes the ``sqlString`` as a single SQL command.</doc>
+<msg timestamp="20240307 13:25:56.958" level="INFO">Executing : Execute SQL String  |  INSERT INTO invoicerow (invoicenumber, rownumber, description, quantity, unit, unitprice, vatpercent, vat, total) VALUES ('153143', '4', 'Cleaning Wipes', 10, 'kpl', 105, 24, 252, 1302)</msg>
+<status status="PASS" starttime="20240307 13:25:56.958" endtime="20240307 13:25:56.961"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.953" endtime="20240307 13:25:56.962"/>
+</iter>
+<status status="PASS" starttime="20240307 13:25:56.899" endtime="20240307 13:25:56.962"/>
+</for>
+<kw name="Close Connection">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20240307 13:25:56.963" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20240307 13:25:56.962" endtime="20240307 13:25:56.963"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.962" endtime="20240307 13:25:56.963"/>
+</kw>
+<status status="PASS" starttime="20240307 13:25:56.884" endtime="20240307 13:25:56.963"/>
 </kw>
 <doc>Process invoice data by inserting header and row information into the database</doc>
-<status status="FAIL" starttime="20240305 22:03:22.215" endtime="20240305 22:03:22.297">Evaluating expression 'Expected=1674, Calculated=0' failed: SyntaxError: invalid syntax (&lt;string&gt;, line 1)</status>
+<status status="PASS" starttime="20240307 13:25:56.647" endtime="20240307 13:25:56.963"/>
 </test>
-<status status="FAIL" starttime="20240305 22:03:22.086" endtime="20240305 22:03:22.297"/>
+<status status="PASS" starttime="20240307 13:25:56.501" endtime="20240307 13:25:56.964"/>
 </suite>
 <statistics>
 <total>
-<stat pass="1" fail="1" skip="0">All Tests</stat>
+<stat pass="2" fail="0" skip="0">All Tests</stat>
 </total>
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="1" skip="0" id="s1" name="Rpa">Rpa</stat>
+<stat pass="2" fail="0" skip="0" id="s1" name="Rpa">Rpa</stat>
 </suite>
 </statistics>
 <errors>
-<msg timestamp="20240305 22:03:22.207" level="WARN">Overwriting not closed connection.</msg>
+<msg timestamp="20240307 13:25:56.631" level="WARN">Overwriting not closed connection.</msg>
 </errors>
 </robot>

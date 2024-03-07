@@ -9,7 +9,7 @@ CREATE TABLE invoicestatus (
     PRIMARY KEY (id)
 );
 -- Create InvoiceHeader table with an added InvoiceStatus_id column for status reference
-CREATE TABLE InvoiceHeader (invoicestatusidstatus
+CREATE TABLE InvoiceHeader (
     invoicenumber INT NOT NULL,
     companyname VARCHAR(100) NULL,
     companycode VARCHAR(45) NOT NULL,
@@ -48,6 +48,13 @@ CREATE TABLE InvoiceRow (
         ON DELETE NO ACTION
         ON UPDATE NO ACTION
 );
+INSERT INTO invoicestatus(id, status)
+VALUES
+    (0, 'All ok'),
+    (1, 'Reference number error'),
+    (2, 'IBAN number error'),
+    (3, 'Total amount mismatch'),
+    (4, 'Multiple issues detected');
 
 -- User and role configuration
 -- Create the user 'robocop' with the specified password
