@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<robot generator="Robot 4.1.1 (Python 3.11.5 on win32)" generated="20240303 20:08:44.915" rpa="false" schemaversion="2">
+<suite id="s1" name="Rpa" source="c:\Users\immor\Documents\UiPath\Invoice-Automation\robot validation\rpa.robot">
+<test id="s1-t1" name="Test Database Connection Close and Clean">
+<kw name="Make Connection">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>pymysql</arg>
+<arg>${dbname}</arg>
+<arg>${dbuser}</arg>
+<arg>${dbpass}</arg>
+<arg>${dbhost}</arg>
+<arg>${dbport}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20240303 20:08:44.999" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=RPA.Password, host=localhost, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20240303 20:08:44.976" endtime="20240303 20:08:45.010"/>
+</kw>
+<status status="PASS" starttime="20240303 20:08:44.976" endtime="20240303 20:08:45.010"/>
+</kw>
+<kw name="Clear Existing Data">
+<doc>Clear existing data from the database for testing purposes</doc>
+<kw name="Make Connection">
+<kw name="Connect To Database" library="DatabaseLibrary">
+<arg>pymysql</arg>
+<arg>${dbname}</arg>
+<arg>${dbuser}</arg>
+<arg>${dbpass}</arg>
+<arg>${dbhost}</arg>
+<arg>${dbport}</arg>
+<doc>Loads the DB API 2.0 module given `dbapiModuleName` then uses it to
+connect to the database using `dbName`, `dbUsername`, and `dbPassword`.</doc>
+<msg timestamp="20240303 20:08:45.011" level="INFO">Connecting using : pymysql.connect(db=rpa_db, user=robocop, passwd=RPA.Password, host=localhost, port=3306, charset=None) </msg>
+<status status="PASS" starttime="20240303 20:08:45.011" endtime="20240303 20:08:45.023"/>
+</kw>
+<status status="PASS" starttime="20240303 20:08:45.010" endtime="20240303 20:08:45.023"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${delete_rows_query}</var>
+<arg>DELETE FROM invoicerow</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240303 20:08:45.023" level="INFO">${delete_rows_query} = DELETE FROM invoicerow</msg>
+<status status="PASS" starttime="20240303 20:08:45.023" endtime="20240303 20:08:45.023"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${delete_rows_query}</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20240303 20:08:45.024" level="INFO">Executing : Execute SQL String  |  DELETE FROM invoicerow </msg>
+<status status="PASS" starttime="20240303 20:08:45.024" endtime="20240303 20:08:45.034"/>
+</kw>
+<kw name="Set Variable" library="BuiltIn">
+<var>${delete_headers_query}</var>
+<arg>DELETE FROM invoiceheader</arg>
+<doc>Returns the given values which can then be assigned to a variables.</doc>
+<msg timestamp="20240303 20:08:45.035" level="INFO">${delete_headers_query} = DELETE FROM invoiceheader</msg>
+<status status="PASS" starttime="20240303 20:08:45.035" endtime="20240303 20:08:45.035"/>
+</kw>
+<kw name="Execute Sql String" library="DatabaseLibrary">
+<arg>${delete_headers_query}</arg>
+<doc>Executes the sqlString as SQL commands. Useful to pass arguments to your sql. Set optional input `sansTran` to
+True to run command without an explicit transaction commit or rollback.</doc>
+<msg timestamp="20240303 20:08:45.035" level="INFO">Executing : Execute SQL String  |  DELETE FROM invoiceheader </msg>
+<status status="PASS" starttime="20240303 20:08:45.035" endtime="20240303 20:08:45.045"/>
+</kw>
+<kw name="Close Connection">
+<kw name="Disconnect From Database" library="DatabaseLibrary">
+<doc>Disconnects from the database.</doc>
+<msg timestamp="20240303 20:08:45.045" level="INFO">Executing : Disconnect From Database</msg>
+<status status="PASS" starttime="20240303 20:08:45.045" endtime="20240303 20:08:45.046"/>
+</kw>
+<status status="PASS" starttime="20240303 20:08:45.045" endtime="20240303 20:08:45.046"/>
+</kw>
+<status status="PASS" starttime="20240303 20:08:45.010" endtime="20240303 20:08:45.046"/>
+</kw>
+<doc>Tests if the database connection can be closed and the data cleaned effectively.</doc>
+<status status="PASS" starttime="20240303 20:08:44.975" endtime="20240303 20:08:45.046"/>
+</test>
+<test id="s1-t2" name="Process Invoice Data">
+<kw name="Read CSV File">
+<var>${headerLines}</var>
+<arg>${header_csv}</arg>
+<kw name="Get File" library="OperatingSystem">
+<var>${file_path}</var>
+<arg>${filename}</arg>
+<doc>Returns the contents of a specified file.</doc>
+<msg timestamp="20240303 20:08:45.049" level="INFO" html="true">Getting file '&lt;a href="file://C:\Users\immor\Documents\UiPath\Invoice-Automation\InvoiceHeaderData.csv"&gt;C:\Users\immor\Documents\UiPath\Invoice-Automation\InvoiceHeaderData.csv&lt;/a&gt;'.</msg>
+<msg timestamp="20240303 20:08:45.049" level="FAIL">FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\immor\\Documents\\UiPath\\Invoice-Automation\\InvoiceHeaderData.csv'</msg>
+<status status="FAIL" starttime="20240303 20:08:45.048" endtime="20240303 20:08:45.050"/>
+</kw>
+<kw name="Split To Lines" library="String">
+<var>@{lines}</var>
+<arg>${file_path}</arg>
+<doc>Splits the given string to lines.</doc>
+<status status="NOT RUN" starttime="20240303 20:08:45.050" endtime="20240303 20:08:45.050"/>
+</kw>
+<status status="FAIL" starttime="20240303 20:08:45.048" endtime="20240303 20:08:45.051"/>
+</kw>
+<kw name="Read CSV File">
+<var>${rows}</var>
+<arg>${row_csv}</arg>
+<status status="NOT RUN" starttime="20240303 20:08:45.051" endtime="20240303 20:08:45.051"/>
+</kw>
+<for flavor="IN">
+<var>${header}</var>
+<value>@{headerLines}[1:]</value>
+<iter>
+<var name="${header}">${header}</var>
+<kw name="Calculate Total Amount From Rows">
+<var>${calculatedTotal}</var>
+<arg>${header[0]}</arg>
+<status status="NOT RUN" starttime="20240303 20:08:45.052" endtime="20240303 20:08:45.052"/>
+</kw>
+<kw name="Insert Invoice Header To DB">
+<arg>${header}</arg>
+<arg>${calculatedTotal}</arg>
+<status status="NOT RUN" starttime="20240303 20:08:45.052" endtime="20240303 20:08:45.052"/>
+</kw>
+<status status="NOT RUN" starttime="20240303 20:08:45.051" endtime="20240303 20:08:45.052"/>
+</iter>
+<status status="NOT RUN" starttime="20240303 20:08:45.051" endtime="20240303 20:08:45.052"/>
+</for>
+<kw name="Insert Invoice Rows To DB">
+<arg>@{rows[1:]}</arg>
+<status status="NOT RUN" starttime="20240303 20:08:45.052" endtime="20240303 20:08:45.052"/>
+</kw>
+<doc>Process invoice data by inserting header and row information into the database</doc>
+<status status="FAIL" starttime="20240303 20:08:45.048" endtime="20240303 20:08:45.053">FileNotFoundError: [Errno 2] No such file or directory: 'C:\\Users\\immor\\Documents\\UiPath\\Invoice-Automation\\InvoiceHeaderData.csv'</status>
+</test>
+<status status="FAIL" starttime="20240303 20:08:44.919" endtime="20240303 20:08:45.054"/>
+</suite>
+<statistics>
+<total>
+<stat pass="1" fail="1" skip="0">All Tests</stat>
+</total>
+<tag>
+</tag>
+<suite>
+<stat pass="1" fail="1" skip="0" id="s1" name="Rpa">Rpa</stat>
+</suite>
+</statistics>
+<errors>
+<msg timestamp="20240303 20:08:44.972" level="ERROR">Error in file 'c:\Users\immor\Documents\UiPath\Invoice-Automation\robot validation\rpa.robot' on line 6: Importing library 'c:\Users\immor\Documents\UiPath\Invoice-Automation\robot validation\total.py' failed: FileNotFoundError: [Errno 2] No such file or directory: 'InvoiceRowData.csv'
+Traceback (most recent call last):
+  File "c:\Users\immor\Documents\UiPath\Invoice-Automation\robot validation\total.py", line 19, in &lt;module&gt;
+    totals = calculate_line_items_total()
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "c:\Users\immor\Documents\UiPath\Invoice-Automation\robot validation\total.py", line 5, in calculate_line_items_total
+    with open(csv_filename, newline='', encoding='utf-8') as csvfile:
+         ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+PYTHONPATH:
+  c:\Users\immor\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_debug_adapter
+  C:\Users\immor\Documents\UiPath\Invoice-Automation
+  c:\Users\immor\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src
+  c:\Users\immor\.vscode\extensions\robocorp.robotframework-lsp-1.11.0\src\robotframework_ls\vendored
+  C:\Users\immor\AppData\Local\Programs\Python\Python311\python311.zip
+  C:\Users\immor\AppData\Local\Programs\Python\Python311\DLLs
+  C:\Users\immor\AppData\Local\Programs\Python\Python311\Lib
+  C:\Users\immor\AppData\Local\Programs\Python\Python311
+  C:\Users\immor\AppData\Roaming\Python\Python311\site-packages
+  C:\Users\immor\AppData\Roaming\Python\Python311\site-packages\win32
+  C:\Users\immor\AppData\Roaming\Python\Python311\site-packages\win32\lib
+  C:\Users\immor\AppData\Roaming\Python\Python311\site-packages\Pythonwin
+  C:\Users\immor\AppData\Local\Programs\Python\Python311\Lib\site-packages</msg>
+</errors>
+</robot>
