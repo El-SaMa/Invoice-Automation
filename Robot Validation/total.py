@@ -3,10 +3,10 @@ import csv
 def calculate_line_items_total(csv_filename='InvoiceRowData.csv'):
     invoice_totals = {}
     with open(csv_filename, newline='', encoding='utf-8') as csvfile:
-        reader = csv.DictReader(csvfile, delimiter=';')  # Ensure delimiter matches your CSV format
+        reader = csv.DictReader(csvfile, delimiter=';')  #  delimiter matches CSV format
         for row in reader:
             try:
-                invoice_number = row['InvoiceNumber'].strip()  # Ensure this matches your column name
+                invoice_number = row['InvoiceNumber'].strip()  #  this matches column name
                 line_item_total = int(float(row['Total'].strip()))  # Convert to float and then to integer
                 invoice_totals[invoice_number] = invoice_totals.get(invoice_number, 0) + line_item_total
             except KeyError as e:
